@@ -14,7 +14,7 @@
   "paths": {
     "/purchase-orders": {
       "get": {
-        "summary": "Purchase Orders",
+        "summary": "Get Purchase Orders",
         "tags": [],
         "responses": {
           "200": {
@@ -142,7 +142,7 @@
       },
       "parameters": [],
       "post": {
-        "summary": "Create Purchase Order with Delivery Requests",
+        "summary": "Create Purchase Order with Deliveries",
         "operationId": "post-purchase-orders",
         "responses": {
           "200": {
@@ -354,7 +354,7 @@
     },
     "/delivery_request_items/elastic-index": {
       "get": {
-        "summary": "Deliveries",
+        "summary": "Get all deliveries",
         "tags": [],
         "responses": {
           "200": {
@@ -561,7 +561,7 @@
         "description": "Get all deliveries in any status"
       },
       "post": {
-        "summary": "",
+        "summary": "Create a delivery request",
         "operationId": "post-delivery_request_items-elastic-index",
         "responses": {
           "200": {
