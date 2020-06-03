@@ -1,0 +1,359 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ProcureLive",
+    "version": "1.0",
+    "description": "APIs for procure live application"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/apis/procure-plus",
+      "description": "Base URL"
+    }
+  ],
+  "paths": {
+    "/purchase-orders": {
+      "get": {
+        "summary": "Get Purchase Orders",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Example Response": {
+                    "value": {
+                      "count": 1,
+                      "purchase_orders": [
+                        {
+                          "id": 33904,
+                          "number": "<Your PO Number>",
+                          "pretty_id": "BZPO-15574-33904",
+                          "placed_from": "procure_plus",
+                          "created_at": "2020-06-03T00:12:38.521+05:30",
+                          "updated_at": "2020-06-03T00:12:39.188+05:30",
+                          "file": "http://demo.bizongo.in/downloads/purchase_orders?token=SampleToken",
+                          "po_date": "2020-05-23T05:30:00.000+05:30",
+                          "confirmation_mode": "erp",
+                          "status": "open",
+                          "placed_for": "Babulal Meena",
+                          "user_id": 25558,
+                          "billing_address": {
+                            "id": 18812,
+                            "cst": null,
+                            "vat": null,
+                            "city": "Ernakulam",
+                            "alias": "COKF",
+                            "gstin": "78AAICA5016B1ZE",
+                            "state": "Kerala",
+                            "country": "India",
+                            "pincode": 682025,
+                            "user_id": 32819,
+                            "landmark": null,
+                            "latitude": null,
+                            "centre_id": 17702,
+                            "full_name": "Wile E Coyote",
+                            "is_active": true,
+                            "longitude": null,
+                            "country_id": 105,
+                            "created_at": "2019-05-24T11:56:15.124+05:30",
+                            "is_billing": true,
+                            "state_code": "KL",
+                            "updated_at": "2020-05-18T16:16:24.097+05:30",
+                            "auto_fetched": false,
+                            "company_name": "Acme Corporation",
+                            "mobile_number": "9820098200",
+                            "addressable_id": null,
+                            "street_address": "Somewhere on planet earth, ",
+                            "landline_number": "",
+                            "addressable_type": null,
+                            "alternate_number": "",
+                            "gstin_state_code": "32",
+                            "gstin_attachment_id": null,
+                            "buyer_warehouse_code": null,
+                            "nearest_warehouse_id": null,
+                            "mobile_number_country_id": 105
+                          },
+                          "delivery_address": null,
+                          "purchase_order_value": 2.36,
+                          "ordered_value": 0,
+                          "buyer": "Acme Corporation",
+                          "centre": {
+                            "id": 17702,
+                            "name": "Acme South",
+                            "is_hq": false,
+                            "is_active": true
+                          },
+                          "creator": {
+                            "id": 25558,
+                            "name": "Wile E Coyote",
+                            "type": "user"
+                          },
+                          "purchase_order_item_count": 1,
+                          "total_quantity": 1,
+                          "total_open_quantity": 1,
+                          "total_delivered_quantity": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {}
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-procure-plus-purchase-orders",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "page",
+            "description": "Page number\n"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "per_page",
+            "description": "Page Size"
+          }
+        ]
+      },
+      "parameters": [],
+      "post": {
+        "summary": "Create Purchase Order with Delivery Requests",
+        "operationId": "post-purchase-orders",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "purchase_order": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "encrypted_file_url",
+                        "confirmation_mode"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "encrypted_file_url": {
+                          "type": "string"
+                        },
+                        "number": {
+                          "type": "string"
+                        },
+                        "pretty_id": {
+                          "type": "string"
+                        },
+                        "confirmation_mode": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "delivery_group": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "pretty_id",
+                        "request_type"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "pretty_id": {
+                          "type": "string"
+                        },
+                        "request_type": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "purchase_order",
+                    "delivery_group"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "purchase_order": {
+                        "id": 29688,
+                        "encrypted_file_url": "http://qa1.indopus.in/downloads/purchase_orders?token=s4mpl3t0k3n",
+                        "number": "BZPO-8131-29688",
+                        "pretty_id": "BZPO-8131-29688",
+                        "confirmation_mode": "erp"
+                      },
+                      "delivery_group": {
+                        "id": 38929,
+                        "pretty_id": "1588929462",
+                        "request_type": "immediate"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Create a single purchase order with one or many delivery requests. A delivery request is a unique grouping of a delivery date & shipping address id. A delivery group is a set of delivery requests placed together.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "purchase_order": {
+                    "type": "object",
+                    "description": "Always use \"erp\"",
+                    "required": [
+                      "confirmation_mode",
+                      "number",
+                      "billing_address_id",
+                      "request_type",
+                      "items"
+                    ],
+                    "properties": {
+                      "confirmation_mode": {
+                        "type": "string",
+                        "enum": [
+                          "erp"
+                        ]
+                      },
+                      "number": {
+                        "type": "string",
+                        "example": "ACME-0122811"
+                      },
+                      "billing_address_id": {
+                        "type": "number",
+                        "example": 762251,
+                        "description": "Billing address ID of the address from Bizongo"
+                      },
+                      "request_type": {
+                        "type": "string",
+                        "enum": [
+                          "immediate"
+                        ]
+                      },
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "child_product_id": {
+                              "type": "integer"
+                            },
+                            "total_quantity": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "child_product_id",
+                            "total_quantity"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "delivery_requests": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "delivery_date": {
+                          "type": "string",
+                          "example": "YYYY-MM-DD"
+                        },
+                        "shipping_address_id": {
+                          "type": "string"
+                        },
+                        "product_distribution": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "child_product_id": {
+                                "type": "integer"
+                              },
+                              "quantity": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "purchase_order"
+                ]
+              },
+              "examples": {
+                "Example": {
+                  "value": {
+                    "purchase_order": {
+                      "confirmation_mode": "erp",
+                      "number": "ACME_CORP_091211",
+                      "billing_address_id": 25923,
+                      "request_type": "immediate",
+                      "items": [
+                        {
+                          "child_product_id": 57062,
+                          "total_quantity": 10
+                        }
+                      ]
+                    },
+                    "delivery_requests": [
+                      {
+                        "delivery_date": "2020-05-08",
+                        "shipping_address_id": 25923,
+                        "product_distribution": [
+                          {
+                            "child_product_id": "57062",
+                            "quantity": 10
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
