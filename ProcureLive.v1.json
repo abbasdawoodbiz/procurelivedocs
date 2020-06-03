@@ -559,6 +559,439 @@
           }
         ]
       }
+    },
+    "/shipments/{shipment_id}": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "core_details": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "dispatch_plan_id": {
+                          "type": "number"
+                        },
+                        "direct_order_id": {
+                          "type": "number"
+                        },
+                        "company_id": {
+                          "type": "number"
+                        },
+                        "weight": {
+                          "type": "number"
+                        },
+                        "dispatched_at": {
+                          "type": "string"
+                        },
+                        "delivered_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "total_amount": {
+                          "type": "number"
+                        },
+                        "total_receivable": {
+                          "type": "number"
+                        },
+                        "invoice_type": {
+                          "type": "string"
+                        },
+                        "transporter": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "tracking": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "link": {
+                              "type": "string"
+                            },
+                            "active": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "origin_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "street_address": {
+                          "type": "string"
+                        },
+                        "landmark": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "country_id": {
+                          "type": "number"
+                        },
+                        "pincode": {
+                          "type": "number"
+                        },
+                        "latitude": {
+                          "type": "number"
+                        },
+                        "mobile_number": {
+                          "type": "string"
+                        },
+                        "state_code": {
+                          "type": "string"
+                        },
+                        "is_active": {
+                          "type": "boolean"
+                        },
+                        "gstin": {
+                          "type": "string"
+                        },
+                        "gstin_attachment_id": {
+                          "type": "string"
+                        },
+                        "auto_fetched": {
+                          "type": "boolean"
+                        },
+                        "company_name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "destination_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "street_address": {
+                          "type": "string"
+                        },
+                        "landmark": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "country_id": {
+                          "type": "number"
+                        },
+                        "pincode": {
+                          "type": "number"
+                        },
+                        "latitude": {
+                          "type": "number"
+                        },
+                        "mobile_number": {
+                          "type": "string"
+                        },
+                        "state_code": {
+                          "type": "string"
+                        },
+                        "is_active": {
+                          "type": "boolean"
+                        },
+                        "gstin": {
+                          "type": "string"
+                        },
+                        "gstin_attachment_id": {
+                          "type": "string"
+                        },
+                        "auto_fetched": {
+                          "type": "boolean"
+                        },
+                        "company_name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "product_information": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "order_item_id": {
+                            "type": "number"
+                          },
+                          "child_product_id": {
+                            "type": "number"
+                          },
+                          "quantity": {
+                            "type": "number"
+                          },
+                          "shipped_quantity": {
+                            "type": "number"
+                          },
+                          "pod_quantity": {
+                            "type": "number"
+                          },
+                          "returned_quantity": {
+                            "type": "number"
+                          },
+                          "quantity_unit": {
+                            "type": "string"
+                          },
+                          "product_name": {
+                            "type": "string"
+                          },
+                          "total_amount": {
+                            "type": "number"
+                          },
+                          "total_receivable": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "dispatch_plan_details": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "dispatch_mode": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "pod": {
+                      "type": "object",
+                      "properties": {
+                        "file_url": {
+                          "type": "string"
+                        },
+                        "uploaded_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "invoice": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "file_url": {
+                          "type": "string"
+                        },
+                        "number": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "type": "string"
+                        },
+                        "buyer_service_bill_number": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Example Shipment Data": {
+                    "value": {
+                      "core_details": {
+                        "id": 81734,
+                        "dispatch_plan_id": 89347,
+                        "direct_order_id": 55996,
+                        "company_id": 15574,
+                        "weight": 0,
+                        "dispatched_at": "Jul 19, 2019",
+                        "delivered_at": "Jul 21, 2019",
+                        "created_at": "2019-07-19T16:13:40.432+05:30",
+                        "updated_at": "2019-08-12T17:44:55.974+05:30",
+                        "status": "delivered",
+                        "total_amount": 8142,
+                        "total_receivable": 8142,
+                        "invoice_type": "inv",
+                        "transporter": {
+                          "id": 422,
+                          "name": "DTDC"
+                        },
+                        "tracking": {
+                          "id": "100003199727",
+                          "link": null,
+                          "active": false
+                        }
+                      },
+                      "origin_address": {
+                        "id": 15343,
+                        "street_address": "Somewhere in the earth",
+                        "landmark": null,
+                        "city": "Bangalore",
+                        "state": "Karnataka",
+                        "country_id": 105,
+                        "pincode": 562123,
+                        "latitude": null,
+                        "longitude": null,
+                        "mobile_number": "9820098200",
+                        "state_code": "KA",
+                        "is_active": true,
+                        "gstin": "29AAVCG045D2ZV",
+                        "gstin_attachment_id": null,
+                        "auto_fetched": false,
+                        "vat": null,
+                        "cst": null,
+                        "gstin_state_code": "29",
+                        "alias": "",
+                        "centre_id": null,
+                        "full_name": "Bangalore",
+                        "company_name": "SMARTPADDLE TECHNOLOGY PRIVATE LIMITED",
+                        "user_id": null,
+                        "is_billing": true,
+                        "addressable_id": 11,
+                        "addressable_type": "Warehouse",
+                        "country": "India",
+                        "created_at": "2018-11-12T16:30:23.411+05:30",
+                        "updated_at": "2019-11-26T16:21:01.651+05:30",
+                        "buyer_warehouse_code": null,
+                        "mobile_number_country_id": 105,
+                        "landline_number": null,
+                        "alternate_number": null,
+                        "nearest_warehouse_id": null
+                      },
+                      "destination_address": {
+                        "id": 17131,
+                        "cst": "",
+                        "vat": "",
+                        "city": "Bangalore",
+                        "alias": "Shipping Address",
+                        "gstin": "29AAICA3918J1ZE",
+                        "state": "Karnataka",
+                        "country": "India",
+                        "pincode": 560067,
+                        "user_id": 31086,
+                        "landmark": null,
+                        "latitude": null,
+                        "centre_id": 15117,
+                        "full_name": "Roadrunner Ramamurthy",
+                        "is_active": true,
+                        "longitude": null,
+                        "contact_id": null,
+                        "created_at": "2019-03-27T11:09:18.094+05:30",
+                        "state_code": "KA",
+                        "updated_at": "2019-05-29T14:19:49.657+05:30",
+                        "auto_fetched": false,
+                        "company_name": "Acme Corporation",
+                        "mobile_number": "+919822098200",
+                        "addressable_id": null,
+                        "street_address": "ACME - Somewhere on the earth",
+                        "addressable_type": null,
+                        "gstin_state_code": "29",
+                        "gstin_attachment_id": null
+                      },
+                      "product_information": [
+                        {
+                          "id": 157471,
+                          "order_item_id": 121376,
+                          "child_product_id": null,
+                          "quantity": 3000,
+                          "shipped_quantity": 3000,
+                          "pod_quantity": 0,
+                          "returned_quantity": 0,
+                          "quantity_unit": "Pieces",
+                          "product_name": "Gift Card | 9.2 cm X 16.6 cm",
+                          "total_amount": 8142,
+                          "total_receivable": 8142
+                        }
+                      ],
+                      "dispatch_plan_details": {
+                        "id": 89347,
+                        "dispatch_mode": "warehouse_to_buyer",
+                        "description": "Create by system",
+                        "status": "done",
+                        "created_at": "2019-07-18T12:09:45.584+05:30"
+                      },
+                      "pod": {
+                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/shipment/buyer_pod_file/81734/1563817650_buyer_pod_file.jpeg",
+                        "uploaded_at": null,
+                        "updated_at": "2019-07-22T23:17:30.105+05:30"
+                      },
+                      "invoice": {
+                        "id": 70229,
+                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/invoice/buyer_invoice_file/7229/13533024_buyer_tax_invoice_89347.pdf",
+                        "number": "GSPKA/FY20/0239",
+                        "date": "2019-07-19T16:13:40.700+05:30",
+                        "buyer_service_bill_number": null
+                      },
+                      "delivery_challan": {
+                        "file_url": null,
+                        "number": null
+                      },
+                      "credit_note": {
+                        "file_url": null,
+                        "number": null,
+                        "date": null,
+                        "amount": null,
+                        "return_shipment_id": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-shipments"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "number"
+          },
+          "name": "shipment_id",
+          "in": "path",
+          "required": true
+        }
+      ]
     }
   },
   "components": {
