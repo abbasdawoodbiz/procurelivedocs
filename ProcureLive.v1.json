@@ -668,7 +668,7 @@
     },
     "/shipments/{shipment_id}": {
       "get": {
-        "summary": "Shipments",
+        "summary": "Get Shipment Data",
         "tags": [],
         "responses": {
           "200": {
