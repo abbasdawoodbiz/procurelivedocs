@@ -557,12 +557,118 @@
             "in": "query",
             "name": "per_page"
           }
-        ]
+        ],
+        "description": "Get all deliveries in any status"
+      },
+      "post": {
+        "summary": "",
+        "operationId": "post-delivery_request_items-elastic-index",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "delivery_group_id": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example Response": {
+                    "value": {
+                      "delivery_group_id": 38931
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Delivery requests are created in a purchase order, if a purchase order has any pending items and quantities in it",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "purchase_order_id": {
+                    "type": "number"
+                  },
+                  "request_type": {
+                    "type": "string"
+                  },
+                  "delivery_requests": {
+                    "type": "object",
+                    "required": [
+                      "delivery_date",
+                      "shipping_address_id",
+                      "delivery_request_items"
+                    ],
+                    "properties": {
+                      "delivery_date": {
+                        "type": "string"
+                      },
+                      "shipping_address_id": {
+                        "type": "number"
+                      },
+                      "delivery_request_items": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "purchase_order_item_id": {
+                              "type": "string"
+                            },
+                            "quantity": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "purchase_order_item_id",
+                            "quantity"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "purchase_order_id",
+                  "request_type",
+                  "delivery_requests"
+                ]
+              },
+              "examples": {
+                "Example Request": {
+                  "value": {
+                    "purchase_order_id": 24483,
+                    "request_type": "immediate",
+                    "delivery_requests": [
+                      {
+                        "delivery_date": "2020-05-08",
+                        "shipping_address_id": 14865,
+                        "delivery_request_items": [
+                          {
+                            "purchase_order_item_id": "54206",
+                            "quantity": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/shipments/{shipment_id}": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "Get Shipment Data",
         "tags": [],
         "responses": {
           "200": {
@@ -980,7 +1086,8 @@
             }
           }
         },
-        "operationId": "get-shipments"
+        "operationId": "get-shipments",
+        "description": "Shipment information is available using the shipment ID, if it is created. Shipment ID can be retrieved in the GET call of delivery request items' dispatch plan object."
       },
       "parameters": [
         {
