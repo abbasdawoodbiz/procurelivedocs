@@ -351,6 +351,214 @@
           }
         }
       }
+    },
+    "/delivery_request_items/elastic-index": {
+      "get": {
+        "summary": "Get All Deliveries",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    },
+                    "delivery_items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "centre_id": {
+                            "type": "number"
+                          },
+                          "delivery_request_id": {
+                            "type": "number"
+                          },
+                          "delivery_date": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "child_product_id": {
+                            "type": "number"
+                          },
+                          "product_id": {
+                            "type": "number"
+                          },
+                          "base_product_name": {
+                            "type": "string"
+                          },
+                          "quantity": {
+                            "type": "number"
+                          },
+                          "quantity_unit": {
+                            "type": "string"
+                          },
+                          "product_image": {
+                            "type": "string"
+                          },
+                          "purchase_order_id": {
+                            "type": "number"
+                          },
+                          "purchase_order_number": {
+                            "type": "string"
+                          },
+                          "delivery_request_pretty_id": {
+                            "type": "string"
+                          },
+                          "delivery_request_shipping_address": {
+                            "type": "string"
+                          },
+                          "delivery_request_shipping_address_details": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "alias": {
+                                "type": "string"
+                              },
+                              "full_name": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "pincode": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "dispatch_plans": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "dispatch_plan_id": {
+                                  "type": "number"
+                                },
+                                "shipment_id": {
+                                  "type": "number"
+                                },
+                                "actual_quantity": {
+                                  "type": "string"
+                                },
+                                "returned_quantity": {
+                                  "type": "number"
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "enum": [
+                                    "dispatched",
+                                    "delivered",
+                                    "requested"
+                                  ]
+                                },
+                                "status_updated_at": {
+                                  "type": "string"
+                                },
+                                "tracking_link": {
+                                  "type": "string"
+                                },
+                                "delivery_timeline": {
+                                  "type": "object",
+                                  "properties": {
+                                    "deadline": {
+                                      "type": "string"
+                                    },
+                                    "completion_date": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "count": 1,
+                      "delivery_items": [
+                        {
+                          "id": "234493",
+                          "centre_id": 19470,
+                          "delivery_request_id": 96289,
+                          "delivery_date": "2020-06-16T00:00:00.000+05:30",
+                          "created_at": "2020-05-29T15:15:25.871+05:30",
+                          "child_product_id": 61018,
+                          "product_id": 73439,
+                          "base_product_name": "Gel Sanitizer | 500 ml",
+                          "quantity": 250,
+                          "quantity_unit": "Pieces",
+                          "product_image": "https://d1wg0fvppk5fit.cloudfront.net/uploads/picture/image/57024/thumb_64_download__8_.jpg",
+                          "purchase_order_id": 34327,
+                          "purchase_order_number": "4510014006",
+                          "delivery_request_pretty_id": "DR-3954-9629",
+                          "delivery_request_shipping_address": "Anna Channai International Airport\nBackup Office No.3, Mezzanine Floor, 600027 , INDIA, Chennai, Tamil Nadu, India, 600027, 9967720019, , ",
+                          "delivery_request_shipping_address_details": {
+                            "id": 39454,
+                            "alias": "Chennai Airport",
+                            "full_name": "Aringar Anna",
+                            "city": "Chennai",
+                            "pincode": 600027
+                          },
+                          "dispatch_plans": [
+                            {
+                              "dispatch_plan_id": 163307,
+                              "shipment_id": 156026,
+                              "actual_quantity": "250.0",
+                              "returned_quantity": 0,
+                              "status": "dispatched",
+                              "status_updated_at": "2020-05-29T18:13:44.605+05:30",
+                              "tracking_link": null,
+                              "delivery_timeline": {
+                                "deadline": "2020-06-16T00:00:00.000+05:30",
+                                "completion_date": null
+                              }
+                            }
+                          ],
+                          "_score": null,
+                          "_explanation": null
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-delivery_request_items-elastic-index",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "page"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "per_page"
+          }
+        ]
+      }
     }
   },
   "components": {
