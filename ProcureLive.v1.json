@@ -14,7 +14,7 @@
   "paths": {
     "/purchase-orders": {
       "get": {
-        "summary": "Get Purchase Orders",
+        "summary": "Purchase Orders",
         "tags": [],
         "responses": {
           "200": {
@@ -354,7 +354,7 @@
     },
     "/delivery_request_items/elastic-index": {
       "get": {
-        "summary": "Get All Deliveries",
+        "summary": "Deliveries",
         "tags": [],
         "responses": {
           "200": {
@@ -668,7 +668,7 @@
     },
     "/shipments/{shipment_id}": {
       "get": {
-        "summary": "Get Shipment Data",
+        "summary": "Shipments",
         "tags": [],
         "responses": {
           "200": {
