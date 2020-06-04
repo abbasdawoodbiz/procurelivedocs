@@ -711,12 +711,12 @@
                             "requested",
                             "processing",
                             "cancelled",
-                            "ready to ship",
-                            "in transit",
                             "delivered",
                             "returned",
-                            "shipment lost",
-                            "could not deliver"
+                            "could_not_deliver",
+                            "shipment_lost",
+                            "ready_to_ship",
+                            "in_transit"
                           ]
                         },
                         "total_amount": {
