@@ -714,7 +714,9 @@
                             "ready to ship",
                             "in transit",
                             "delivered",
-                            "returned"
+                            "returned",
+                            "shipment lost",
+                            "could not deliver"
                           ]
                         },
                         "total_amount": {
