@@ -1411,7 +1411,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "number"
           },
           "name": "shipment_id",
           "in": "path",
