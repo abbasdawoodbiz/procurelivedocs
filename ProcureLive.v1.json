@@ -22,7 +22,79 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "purchase_orders": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "number": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "file": {
+                            "type": "string"
+                          },
+                          "po_date": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "billing_address": {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "number"
+                              },
+                              "street_address": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "pincode": {
+                                "type": "string"
+                              },
+                              "centre_id": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "purchase_order_value": {
+                            "type": "number"
+                          },
+                          "ordered_value": {
+                            "type": "number"
+                          },
+                          "purchase_order_item_count": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "Example Response": {
@@ -30,73 +102,73 @@
                       "count": 1,
                       "purchase_orders": [
                         {
-                          "id": 33904,
-                          "number": "<Your PO Number>",
-                          "pretty_id": "BZPO-15574-33904",
+                          "id": 34173,
+                          "number": "ACME-03505794",
+                          "pretty_id": "BZPO-15574-34173",
                           "placed_from": "procure_plus",
-                          "created_at": "2020-06-03T00:12:38.521+05:30",
-                          "updated_at": "2020-06-03T00:12:39.188+05:30",
-                          "file": "http://demo.bizongo.in/downloads/purchase_orders?token=SampleToken",
-                          "po_date": "2020-05-23T05:30:00.000+05:30",
-                          "confirmation_mode": "erp",
-                          "status": "open",
-                          "placed_for": "Babulal Meena",
-                          "user_id": 25558,
+                          "created_at": "2020-05-25T15:33:53.996+05:30",
+                          "updated_at": "2020-05-25T16:55:35.510+05:30",
+                          "file": "http://files.bizongo.in/downloads/purchase_orders?token=S3cr3t",
+                          "po_date": "2020-05-25T00:00:00.000+05:30",
+                          "confirmation_mode": "actual_po",
+                          "status": "closed",
+                          "placed_for": "Richard Roadrunner",
+                          "user_id": 31842,
                           "billing_address": {
-                            "id": 18812,
+                            "id": 19147,
                             "cst": null,
                             "vat": null,
-                            "city": "Ernakulam",
-                            "alias": "COKF",
-                            "gstin": "78AAICA5016B1ZE",
-                            "state": "Kerala",
+                            "city": "Belgaum",
+                            "alias": "Acme Rocket Experiment Area",
+                            "gstin": "29A016B1Z0",
+                            "state": "Karnataka",
                             "country": "India",
-                            "pincode": 682025,
-                            "user_id": 32819,
+                            "pincode": 590016,
+                            "user_id": 31951,
                             "landmark": null,
                             "latitude": null,
                             "centre_id": 17702,
-                            "full_name": "Wile E Coyote",
+                            "full_name": "ACRA",
                             "is_active": true,
                             "longitude": null,
                             "country_id": 105,
-                            "created_at": "2019-05-24T11:56:15.124+05:30",
+                            "created_at": "2019-06-07T11:47:07.802+05:30",
                             "is_billing": true,
-                            "state_code": "KL",
-                            "updated_at": "2020-05-18T16:16:24.097+05:30",
+                            "state_code": "KA",
+                            "updated_at": "2019-11-26T16:22:14.879+05:30",
                             "auto_fetched": false,
                             "company_name": "Acme Corporation",
-                            "mobile_number": "9820098200",
+                            "mobile_number": "7676767676",
                             "addressable_id": null,
-                            "street_address": "Somewhere on planet earth, ",
-                            "landline_number": "",
+                            "street_address": "Plot No. 7, Surv ey No. 8664/1 & 5\nMulla Building, Shree Nagar\n590016 Belgaum, Karnataka\nIndia",
+                            "landline_number": null,
                             "addressable_type": null,
-                            "alternate_number": "",
-                            "gstin_state_code": "32",
+                            "alternate_number": null,
+                            "gstin_state_code": "29",
                             "gstin_attachment_id": null,
                             "buyer_warehouse_code": null,
                             "nearest_warehouse_id": null,
                             "mobile_number_country_id": 105
                           },
                           "delivery_address": null,
-                          "purchase_order_value": 2.36,
-                          "ordered_value": 0,
-                          "buyer": "Acme Corporation",
+                          "purchase_order_value": 377600,
+                          "ordered_value": 377600,
+                          "buyer": "Acme Corporation South",
                           "centre": {
                             "id": 17702,
-                            "name": "Acme South",
+                            "name": "Acme Corporation South - LM",
                             "is_hq": false,
                             "is_active": true
                           },
                           "creator": {
-                            "id": 25558,
+                            "id": 31842,
                             "name": "Wile E Coyote",
                             "type": "user"
                           },
                           "purchase_order_item_count": 1,
-                          "total_quantity": 1,
-                          "total_open_quantity": 1,
-                          "total_delivered_quantity": 0
+                          "total_quantity": 10000,
+                          "total_open_quantity": 0,
+                          "total_delivered_quantity": 10000
                         }
                       ]
                     }
@@ -104,6 +176,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": ""
           },
           "": {
             "content": {
@@ -222,6 +297,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "description": "Create a single purchase order with one or many delivery requests. A delivery request is a unique grouping of a delivery date & shipping address id. A delivery group is a set of delivery requests placed together.",
@@ -539,6 +617,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "operationId": "get-delivery_request_items-elastic-index",
@@ -585,6 +666,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "description": "Delivery requests are created in a purchase order, if a purchase order has any pending items and quantities in it",
@@ -1391,6 +1475,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "operationId": "get-shipments",
@@ -1983,6 +2070,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "operationId": "get-shipments-shipment_id-track",
