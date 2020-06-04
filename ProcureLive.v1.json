@@ -706,7 +706,16 @@
                           "type": "string"
                         },
                         "status": {
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "requested",
+                            "processing",
+                            "cancelled",
+                            "ready to ship",
+                            "in transit",
+                            "delivered",
+                            "returned"
+                          ]
                         },
                         "total_amount": {
                           "type": "number"
@@ -942,7 +951,7 @@
                   }
                 },
                 "examples": {
-                  "Example Shipment Data": {
+                  "Delivered Shipment": {
                     "value": {
                       "core_details": {
                         "id": 81734,
@@ -1050,22 +1059,318 @@
                         }
                       ],
                       "dispatch_plan_details": {
-                        "id": 89347,
+                        "id": 897,
                         "dispatch_mode": "warehouse_to_buyer",
                         "description": "Create by system",
                         "status": "done",
                         "created_at": "2019-07-18T12:09:45.584+05:30"
                       },
                       "pod": {
-                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/shipment/buyer_pod_file/81734/1563817650_buyer_pod_file.jpeg",
+                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/shipment/buyer_pod_file/814/63817650_buyer_pod_file.jpeg",
                         "uploaded_at": null,
                         "updated_at": "2019-07-22T23:17:30.105+05:30"
                       },
                       "invoice": {
-                        "id": 70229,
-                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/invoice/buyer_invoice_file/7229/13533024_buyer_tax_invoice_89347.pdf",
-                        "number": "GSPKA/FY20/0239",
+                        "id": 709,
+                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/invoice/buyer_invoice_file/29/133024_buyer_tax_invoice_89347.pdf",
+                        "number": "GSPKA/FY25/029",
                         "date": "2019-07-19T16:13:40.700+05:30",
+                        "buyer_service_bill_number": null
+                      },
+                      "delivery_challan": {
+                        "file_url": null,
+                        "number": null
+                      },
+                      "credit_note": {
+                        "file_url": null,
+                        "number": null,
+                        "date": null,
+                        "amount": null,
+                        "return_shipment_id": null
+                      }
+                    }
+                  },
+                  "Returned Shipment": {
+                    "value": {
+                      "core_details": {
+                        "id": 132412,
+                        "dispatch_plan_id": 142349,
+                        "direct_order_id": 88293,
+                        "company_id": 15574,
+                        "weight": 0,
+                        "dispatched_at": "Mar  2, 2020",
+                        "delivered_at": "Mar  5, 2020",
+                        "created_at": "2020-03-02T14:52:39.905+05:30",
+                        "updated_at": "2020-05-23T20:16:10.246+05:30",
+                        "status": "returned",
+                        "total_amount": 8091.26,
+                        "total_receivable": 0,
+                        "invoice_type": "inv",
+                        "transporter": {
+                          "id": 31,
+                          "name": "Delhivery B2B"
+                        },
+                        "tracking": {
+                          "id": "KA526406",
+                          "link": "KA526406",
+                          "active": false
+                        }
+                      },
+                      "origin_address": {
+                        "id": 15343,
+                        "street_address": "SY No 6 Huskur road Makali Post Dasanapura Hobli",
+                        "landmark": null,
+                        "city": "Bangalore",
+                        "state": "Karnataka",
+                        "country_id": 105,
+                        "pincode": 562123,
+                        "latitude": null,
+                        "longitude": null,
+                        "mobile_number": "9035000604",
+                        "state_code": "KA",
+                        "is_active": false,
+                        "gstin": "29AAVCS6045D2ZV",
+                        "gstin_attachment_id": null,
+                        "auto_fetched": false,
+                        "vat": null,
+                        "cst": null,
+                        "gstin_state_code": "29",
+                        "alias": "",
+                        "centre_id": null,
+                        "full_name": "Bangalore",
+                        "company_name": "SMARTPADDLE TECHNOLOGY PRIVATE LIMITED",
+                        "user_id": null,
+                        "is_billing": true,
+                        "addressable_id": 11,
+                        "addressable_type": "Warehouse",
+                        "country": "India",
+                        "created_at": "2018-11-12T16:30:23.411+05:30",
+                        "updated_at": "2020-06-03T17:18:41.114+05:30",
+                        "buyer_warehouse_code": null,
+                        "mobile_number_country_id": 105,
+                        "landline_number": null,
+                        "alternate_number": null,
+                        "nearest_warehouse_id": null
+                      },
+                      "destination_address": {
+                        "id": 19470,
+                        "cst": null,
+                        "vat": null,
+                        "city": "Chennai",
+                        "alias": "ACME-AL",
+                        "gstin": "33AAKCA5016Z12B",
+                        "state": "Tamil Nadu",
+                        "country": "India",
+                        "pincode": 600032,
+                        "user_id": 31842,
+                        "landmark": null,
+                        "latitude": null,
+                        "centre_id": 17702,
+                        "full_name": "Porky Pig",
+                        "is_active": true,
+                        "longitude": null,
+                        "country_id": 105,
+                        "created_at": "2019-06-13T13:00:56.728+05:30",
+                        "is_billing": false,
+                        "state_code": "TN",
+                        "updated_at": "2019-11-26T16:24:28.101+05:30",
+                        "auto_fetched": false,
+                        "company_name": "Acme Corporation",
+                        "mobile_number": "9894868336",
+                        "addressable_id": null,
+                        "street_address": "1A , Water Works Road, Guindy industrial Estate , Guindy, Chennai – 600032, (Tasmanian Devil 9852014900)",
+                        "landline_number": null,
+                        "addressable_type": null,
+                        "alternate_number": null,
+                        "gstin_state_code": "33",
+                        "gstin_attachment_id": null,
+                        "buyer_warehouse_code": null,
+                        "mobile_number_country_id": 105
+                      },
+                      "product_information": [
+                        {
+                          "id": 255225,
+                          "order_item_id": 19820,
+                          "child_product_id": 5299,
+                          "quantity": 500,
+                          "shipped_quantity": 500,
+                          "pod_quantity": 0,
+                          "returned_quantity": "500.0",
+                          "quantity_unit": "Pieces",
+                          "product_name": "Rocket Propellent - Extreme Edition",
+                          "total_amount": 1947,
+                          "total_receivable": 0
+                        }
+                      ],
+                      "dispatch_plan_details": {
+                        "id": 142349,
+                        "dispatch_mode": "warehouse_to_buyer",
+                        "description": "auto_created",
+                        "status": "done",
+                        "created_at": "2020-03-01T13:21:59.106+05:30"
+                      },
+                      "pod": {
+                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/shipment/buyer_pod_file/132/1107_buyer_pod_file.pdf",
+                        "uploaded_at": "2020-05-19T19:18:36.803+05:30",
+                        "updated_at": "2020-05-19T19:18:26.081+05:30"
+                      },
+                      "invoice": {
+                        "id": 114550,
+                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/invoice/buyer_invoice_file/110/1563_buyer_tax_invoice_142349.pdf",
+                        "number": "GSPKA/FY25/194",
+                        "date": "2020-03-02T14:52:40.096+05:30",
+                        "buyer_service_bill_number": null
+                      },
+                      "delivery_challan": {
+                        "file_url": null,
+                        "number": null
+                      },
+                      "credit_note": {
+                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/bizongo_credit_note/bizongo_credit_note_file/60/412_credit_note_133.pdf",
+                        "number": "CNQKA/FY25/051",
+                        "date": "2020-03-06T16:10:11.316+05:30",
+                        "amount": 6144.26,
+                        "return_shipment_id": 133
+                      }
+                    }
+                  },
+                  "Cancelled Shipment": {
+                    "value": {
+                      "core_details": {
+                        "id": 99303,
+                        "dispatch_plan_id": 107838,
+                        "direct_order_id": 67943,
+                        "company_id": 15574,
+                        "weight": 0,
+                        "dispatched_at": "Oct  1, 2019",
+                        "delivered_at": null,
+                        "created_at": "2019-10-01T15:12:07.009+05:30",
+                        "updated_at": "2019-10-12T15:35:58.450+05:30",
+                        "status": "cancelled",
+                        "total_amount": 14593.06,
+                        "total_receivable": 14593.06,
+                        "invoice_type": "inv",
+                        "transporter": {
+                          "id": 31,
+                          "name": "Delhivery B2B"
+                        },
+                        "tracking": {
+                          "id": "199183022",
+                          "link": null,
+                          "active": false
+                        }
+                      },
+                      "origin_address": {
+                        "id": 15343,
+                        "street_address": "SY No 6 Huskur road Makali Post Dasanapura Hobli",
+                        "landmark": null,
+                        "city": "Bangalore",
+                        "state": "Karnataka",
+                        "country_id": 105,
+                        "pincode": 562123,
+                        "latitude": null,
+                        "longitude": null,
+                        "mobile_number": "9035000604",
+                        "state_code": "KA",
+                        "is_active": false,
+                        "gstin": "29AAVCS6045D2ZV",
+                        "gstin_attachment_id": null,
+                        "auto_fetched": false,
+                        "vat": null,
+                        "cst": null,
+                        "gstin_state_code": "29",
+                        "alias": "",
+                        "centre_id": null,
+                        "full_name": "Bangalore",
+                        "company_name": "SMARTPADDLE TECHNOLOGY PRIVATE LIMITED",
+                        "user_id": null,
+                        "is_billing": true,
+                        "addressable_id": 11,
+                        "addressable_type": "Warehouse",
+                        "country": "India",
+                        "created_at": "2018-11-12T16:30:23.411+05:30",
+                        "updated_at": "2020-06-03T17:18:41.114+05:30",
+                        "buyer_warehouse_code": null,
+                        "mobile_number_country_id": 105,
+                        "landline_number": null,
+                        "alternate_number": null,
+                        "nearest_warehouse_id": null
+                      },
+                      "destination_address": {
+                        "id": 21280,
+                        "cst": null,
+                        "vat": null,
+                        "city": "Trisshur",
+                        "alias": "TCRJ",
+                        "gstin": "32AA0CY5036Z1ZD",
+                        "state": "Kerala",
+                        "country": "India",
+                        "pincode": 680101,
+                        "user_id": 31842,
+                        "landmark": null,
+                        "latitude": null,
+                        "centre_id": 17702,
+                        "full_name": "Porky Pig",
+                        "is_active": true,
+                        "longitude": null,
+                        "contact_id": null,
+                        "created_at": "2019-06-25T15:47:47.596+05:30",
+                        "state_code": "KL",
+                        "updated_at": "2019-06-25T15:47:47.596+05:30",
+                        "auto_fetched": false,
+                        "company_name": "Acme Corporation",
+                        "mobile_number": "8075019747",
+                        "addressable_id": null,
+                        "street_address": "Shutter No 3,4, Choolpuram juma Masjid,Kottappadi,Kunnakkulam-Guravayoor Road",
+                        "addressable_type": null,
+                        "gstin_state_code": "32",
+                        "gstin_attachment_id": null
+                      },
+                      "product_information": [
+                        {
+                          "id": 194965,
+                          "order_item_id": 151430,
+                          "child_product_id": null,
+                          "quantity": 500,
+                          "shipped_quantity": 500,
+                          "pod_quantity": 0,
+                          "returned_quantity": 0,
+                          "quantity_unit": "Pieces",
+                          "product_name": "ATS LDPE C-Return Pouch | 10.5 Inch x 14 Inch_LM",
+                          "total_amount": 1398.3,
+                          "total_receivable": 1398.3
+                        },
+                        {
+                          "id": 194967,
+                          "order_item_id": 151429,
+                          "child_product_id": null,
+                          "quantity": 500,
+                          "shipped_quantity": 500,
+                          "pod_quantity": 0,
+                          "returned_quantity": 0,
+                          "quantity_unit": "Pieces",
+                          "product_name": "ATS LDPE C-Return Pouch | 19 Inch x 24 Inch_LM",
+                          "total_amount": 3599,
+                          "total_receivable": 3599
+                        }
+                      ],
+                      "dispatch_plan_details": {
+                        "id": 1038,
+                        "dispatch_mode": "warehouse_to_buyer",
+                        "description": "Create by system",
+                        "status": "done",
+                        "created_at": "2019-09-30T19:40:03.287+05:30"
+                      },
+                      "pod": {
+                        "file_url": null,
+                        "uploaded_at": null,
+                        "updated_at": null
+                      },
+                      "invoice": {
+                        "id": 85304,
+                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/invoice/buyer_invoice_file/04/122930_buyer_tax_invoice_1838.pdf",
+                        "number": "GSPKA/FY25/09",
+                        "date": "2019-10-01T15:12:07.280+05:30",
                         "buyer_service_bill_number": null
                       },
                       "delivery_challan": {
@@ -1099,6 +1404,287 @@
           "required": true
         }
       ]
+    },
+    "/shipments/{shipment_id}/track": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "shipment_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Tracking Shipment Status",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tracking_number": {
+                      "type": "string"
+                    },
+                    "status_detail": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "weight": {
+                          "type": "number"
+                        },
+                        "estimated_delivery_date": {
+                          "type": "string"
+                        },
+                        "pickup_date": {
+                          "type": "string"
+                        },
+                        "location": {
+                          "type": "object",
+                          "properties": {
+                            "city": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "string"
+                            },
+                            "country_code": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "events": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "arrival_time": {
+                                "type": "string"
+                              },
+                              "event_type": {
+                                "type": "string"
+                              },
+                              "event_description": {
+                                "type": "string"
+                              },
+                              "arrival_location": {
+                                "type": "string"
+                              },
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "city": {
+                                    "type": "string"
+                                  },
+                                  "state_or_province_code": {
+                                    "type": "string"
+                                  },
+                                  "postal_code": {
+                                    "type": "string"
+                                  },
+                                  "country_code": {
+                                    "type": "string"
+                                  },
+                                  "country_name": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "package_count": {
+                      "type": "string"
+                    },
+                    "package_sequence_number": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example Response - Delivered Shipment": {
+                    "value": {
+                      "tracking_number": "200238663",
+                      "status_detail": {
+                        "code": "Delivered",
+                        "description": "Shipment Delivered",
+                        "weight": null,
+                        "estimated_delivery_date": null,
+                        "pickup_date": null,
+                        "location": {
+                          "city": "Noida_Sector63_L (Uttar Pradesh)",
+                          "state": null,
+                          "country_code": null
+                        },
+                        "events": [
+                          {
+                            "arrival_time": "2020-03-12 11:44:12",
+                            "event_type": "Delivered",
+                            "event_description": "Shipment Delivered",
+                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
+                            "address": {
+                              "city": "Noida_Sector63_L (Uttar Pradesh)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-09 17:16:34",
+                            "event_type": "Delivered",
+                            "event_description": "Shipment Delivered",
+                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
+                            "address": {
+                              "city": "Noida_Sector63_L (Uttar Pradesh)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-09 12:16:11",
+                            "event_type": "OutForDelivery",
+                            "event_description": "Out for delivery",
+                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
+                            "address": {
+                              "city": "Noida_Sector63_L (Uttar Pradesh)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-08 07:28:36",
+                            "event_type": "InTransit",
+                            "event_description": "Received at destination city",
+                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
+                            "address": {
+                              "city": "Noida_Sector63_L (Uttar Pradesh)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-08 06:34:19",
+                            "event_type": "InTransit",
+                            "event_description": "Trip Arrived",
+                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
+                            "address": {
+                              "city": "Noida_Sector63_L (Uttar Pradesh)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-07 22:59:27",
+                            "event_type": "InTransit",
+                            "event_description": "Bag Added To Trip",
+                            "arrival_location": "Gurgaon_Tauru_H (Haryana)",
+                            "address": {
+                              "city": "Gurgaon_Tauru_H (Haryana)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-07 16:48:24",
+                            "event_type": "InTransit",
+                            "event_description": "Trip Arrived",
+                            "arrival_location": "Gurgaon_Tauru_H (Haryana)",
+                            "address": {
+                              "city": "Gurgaon_Tauru_H (Haryana)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-07 12:45:07",
+                            "event_type": "InTransit",
+                            "event_description": "Trip Arrived",
+                            "arrival_location": "Gurgaon_Tauru_H (Haryana)",
+                            "address": {
+                              "city": "Gurgaon_Tauru_H (Haryana)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-07 11:21:06",
+                            "event_type": "InTransit",
+                            "event_description": "Transit Delay ",
+                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
+                            "address": {
+                              "city": "Bangalore_Nelmngla_H (Karnataka)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-05 15:52:30",
+                            "event_type": "InTransit",
+                            "event_description": "Transit Delay ",
+                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
+                            "address": {
+                              "city": "Bangalore_Nelmngla_H (Karnataka)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          },
+                          {
+                            "arrival_time": "2020-03-05 12:05:00",
+                            "event_type": "InTransit",
+                            "event_description": "Bag Added To Trip",
+                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
+                            "address": {
+                              "city": "Bangalore_Nelmngla_H (Karnataka)",
+                              "state_or_province_code": null,
+                              "postal_code": null,
+                              "country_code": null,
+                              "country_name": null
+                            }
+                          }
+                        ]
+                      },
+                      "package_count": "NA",
+                      "package_sequence_number": "NA"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-shipments-shipment_id-track",
+        "description": "Gets the leg by leg tracking information once a shipment is dispatched, from the courier partners' API."
+      }
     }
   },
   "components": {
