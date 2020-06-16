@@ -24,7 +24,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "count": {
+                    "total_count": {
                       "type": "integer"
                     },
                     "purchase_orders": {
@@ -32,64 +32,43 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "number": {
+                          "purchase_order_number": {
                             "type": "string"
                           },
                           "created_at": {
                             "type": "string"
                           },
-                          "updated_at": {
-                            "type": "string"
-                          },
-                          "file": {
-                            "type": "string"
-                          },
-                          "po_date": {
-                            "type": "string"
-                          },
-                          "status": {
-                            "type": "string"
-                          },
-                          "billing_address": {
-                            "type": "object",
-                            "properties": {
-                              "alias": {
-                                "type": "string"
-                              },
-                              "id": {
-                                "type": "number"
-                              },
-                              "street_address": {
-                                "type": "string"
-                              },
-                              "city": {
-                                "type": "string"
-                              },
-                              "state": {
-                                "type": "string"
-                              },
-                              "country": {
-                                "type": "string"
-                              },
-                              "pincode": {
-                                "type": "string"
-                              },
-                              "centre_id": {
-                                "type": "number"
-                              }
-                            }
-                          },
-                          "purchase_order_value": {
-                            "type": "number"
-                          },
-                          "ordered_value": {
+                          "sub_total": {
                             "type": "number"
                           },
                           "purchase_order_item_count": {
                             "type": "integer"
+                          },
+                          "total": {
+                            "type": "number"
+                          },
+                          "tax": {
+                            "type": "number"
+                          },
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "item_code": {
+                                  "type": "string"
+                                },
+                                "quantity": {
+                                  "type": "number"
+                                },
+                                "open_quantity": {
+                                  "type": "number"
+                                },
+                                "created_at": {
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -99,76 +78,28 @@
                 "examples": {
                   "Example Response": {
                     "value": {
-                      "count": 1,
+                      "total_count": 1,
                       "purchase_orders": [
                         {
-                          "id": 34173,
-                          "number": "ACME-03505794",
-                          "pretty_id": "BZPO-15574-34173",
-                          "placed_from": "procure_plus",
-                          "created_at": "2020-05-25T15:33:53.996+05:30",
-                          "updated_at": "2020-05-25T16:55:35.510+05:30",
-                          "file": "http://files.bizongo.in/downloads/purchase_orders?token=S3cr3t",
-                          "po_date": "2020-05-25T00:00:00.000+05:30",
-                          "confirmation_mode": "actual_po",
-                          "status": "closed",
-                          "placed_for": "Richard Roadrunner",
-                          "user_id": 31842,
-                          "billing_address": {
-                            "id": 19147,
-                            "cst": null,
-                            "vat": null,
-                            "city": "Belgaum",
-                            "alias": "Acme Rocket Experiment Area",
-                            "gstin": "29A016B1Z0",
-                            "state": "Karnataka",
-                            "country": "India",
-                            "pincode": 590016,
-                            "user_id": 31951,
-                            "landmark": null,
-                            "latitude": null,
-                            "centre_id": 17702,
-                            "full_name": "ACRA",
-                            "is_active": true,
-                            "longitude": null,
-                            "country_id": 105,
-                            "created_at": "2019-06-07T11:47:07.802+05:30",
-                            "is_billing": true,
-                            "state_code": "KA",
-                            "updated_at": "2019-11-26T16:22:14.879+05:30",
-                            "auto_fetched": false,
-                            "company_name": "Acme Corporation",
-                            "mobile_number": "7676767676",
-                            "addressable_id": null,
-                            "street_address": "Plot No. 7, Surv ey No. 8664/1 & 5\nMulla Building, Shree Nagar\n590016 Belgaum, Karnataka\nIndia",
-                            "landline_number": null,
-                            "addressable_type": null,
-                            "alternate_number": null,
-                            "gstin_state_code": "29",
-                            "gstin_attachment_id": null,
-                            "buyer_warehouse_code": null,
-                            "nearest_warehouse_id": null,
-                            "mobile_number_country_id": 105
-                          },
-                          "delivery_address": null,
-                          "purchase_order_value": 377600,
-                          "ordered_value": 377600,
-                          "buyer": "Acme Corporation South",
-                          "centre": {
-                            "id": 17702,
-                            "name": "Acme Corporation South - LM",
-                            "is_hq": false,
-                            "is_active": true
-                          },
-                          "creator": {
-                            "id": 31842,
-                            "name": "Wile E Coyote",
-                            "type": "user"
-                          },
-                          "purchase_order_item_count": 1,
-                          "total_quantity": 10000,
-                          "total_open_quantity": 0,
-                          "total_delivered_quantity": 10000
+                          "purchase_order_number": "9066d9",
+                          "sub_total": 6475,
+                          "total": 7640.5,
+                          "tax": 1165.5,
+                          "created_at": "2020-06-13T22:48:54.262+05:30",
+                          "items": [
+                            {
+                              "item_code": "2311LK",
+                              "quantity": 100,
+                              "open_quantity": 100,
+                              "created_at": "2020-06-13T22:48:54.371+05:30"
+                            },
+                            {
+                              "item_code": "2310LK",
+                              "quantity": 50,
+                              "open_quantity": 50,
+                              "created_at": "2020-06-13T22:48:54.337+05:30"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -195,7 +126,7 @@
           }
         },
         "operationId": "get-procure-plus-purchase-orders",
-        "description": "",
+        "description": "Gets a list of purchase orders for a given company ID, identified by email address and a key based authentication",
         "parameters": [
           {
             "schema": {
@@ -212,12 +143,20 @@
             "in": "query",
             "name": "per_page",
             "description": "Page Size"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "purchase_order_number",
+            "description": "PO number"
           }
         ]
       },
       "parameters": [],
       "post": {
-        "summary": "Create Purchase Order with Deliveries",
+        "summary": "Create Purchase Order",
         "operationId": "post-purchase-orders",
         "responses": {
           "200": {
@@ -229,68 +168,296 @@
                   "properties": {
                     "purchase_order": {
                       "type": "object",
-                      "required": [
-                        "id",
-                        "encrypted_file_url",
-                        "confirmation_mode"
-                      ],
                       "properties": {
-                        "id": {
+                        "purchase_order_number": {
+                          "type": "string"
+                        },
+                        "subtotal": {
                           "type": "number"
                         },
-                        "encrypted_file_url": {
+                        "total": {
+                          "type": "number"
+                        },
+                        "tax": {
+                          "type": "number"
+                        },
+                        "created_at": {
                           "type": "string"
                         },
-                        "number": {
-                          "type": "string"
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "item_code": {
+                              "type": "string"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "quantity": {
+                              "type": "number"
+                            },
+                            "price_per_unit": {
+                              "type": "number"
+                            }
+                          }
                         },
-                        "pretty_id": {
-                          "type": "string"
-                        },
-                        "confirmation_mode": {
-                          "type": "string"
+                        "billing_address": {
+                          "type": "object",
+                          "properties": {
+                            "street_address": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "string"
+                            },
+                            "pincode": {
+                              "type": "string"
+                            },
+                            "mobile_number": {
+                              "type": "string"
+                            },
+                            "gstin": {
+                              "type": "string"
+                            },
+                            "company_name": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string"
+                            },
+                            "buyer_warehouse_code": {
+                              "type": "string"
+                            },
+                            "alias": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     },
-                    "delivery_group": {
-                      "type": "object",
-                      "required": [
-                        "id",
-                        "pretty_id",
-                        "request_type"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "pretty_id": {
-                          "type": "string"
-                        },
-                        "request_type": {
-                          "type": "string"
+                    "delivery_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "expected_delivery_date": {
+                            "type": "string"
+                          },
+                          "order_id": {
+                            "type": "string"
+                          },
+                          "shipping_address": {
+                            "type": "object",
+                            "properties": {
+                              "street_address": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "pincode": {
+                                "type": "string"
+                              },
+                              "mobile_number": {
+                                "type": "string"
+                              },
+                              "gstin": {
+                                "type": "string"
+                              },
+                              "company_name": {
+                                "type": "string"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "created_at": {
+                                "type": "string"
+                              },
+                              "updated_at": {
+                                "type": "string"
+                              },
+                              "buyer_warehouse_code": {
+                                "type": "string"
+                              },
+                              "alias": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "item_code": {
+                                  "type": "string"
+                                },
+                                "quantity": {
+                                  "type": "number"
+                                },
+                                "created_at": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "purchase_order",
-                    "delivery_group"
-                  ]
+                  }
                 },
                 "examples": {
-                  "Example": {
+                  "Response for PO with Deliveries": {
                     "value": {
                       "purchase_order": {
-                        "id": 29688,
-                        "encrypted_file_url": "http://qa1.indopus.in/downloads/purchase_orders?token=s4mpl3t0k3n",
-                        "number": "BZPO-8131-29688",
-                        "pretty_id": "BZPO-8131-29688",
-                        "confirmation_mode": "erp"
+                        "billing_address": {
+                          "street_address": "No. 36/2C, Pattanagere main road,India Location Code: 91727923, RajaRajeshwarinagar, (near Metro Cash and Carry Mysuru road",
+                          "city": "Bangalore",
+                          "state": "Karnataka",
+                          "pincode": 560059,
+                          "mobile_number": "8050021583",
+                          "state_code": "KA",
+                          "gstin": "29AAICA3768J1ZE",
+                          "alias": "UBL5",
+                          "full_name": "Kuldeep",
+                          "company_name": "Acme Corporation",
+                          "country": "India",
+                          "created_at": "2019-10-17T18:14:06.069+05:30",
+                          "updated_at": "2020-06-08T23:10:31.376+05:30",
+                          "buyer_warehouse_code": "24945_LK"
+                        },
+                        "purchase_order_number": "9009",
+                        "sub_total": 6475,
+                        "total": 7640.5,
+                        "tax": 1165.5,
+                        "created_at": "2020-06-15T17:22:11.397+05:30",
+                        "items": [
+                          {
+                            "item_code": "2310LK",
+                            "quantity": 50,
+                            "created_at": "2020-06-15T17:22:11.439+05:30",
+                            "price_per_unit": 55.5
+                          },
+                          {
+                            "item_code": "2311LK",
+                            "quantity": 100,
+                            "created_at": "2020-06-15T17:22:11.476+05:30",
+                            "price_per_unit": 37
+                          }
+                        ]
                       },
-                      "delivery_group": {
-                        "id": 38929,
-                        "pretty_id": "1588929462",
-                        "request_type": "immediate"
+                      "delivery_requests": [
+                        {
+                          "expected_delivery_date": "2020-06-16 00:00:00 +0530",
+                          "order_id": "LK02",
+                          "shipping_address": {
+                            "street_address": "SINDHI CAMP, PATRA CHAWL, RAILWAY COLONY, SABLE NAGAR NR BLDG NO.13, KURLA WEST, Mumbai City",
+                            "city": "Mumbai",
+                            "state": "Maharashtra",
+                            "pincode": 400024,
+                            "mobile_number": "+917900161987",
+                            "gstin": "27AFXPG6105L1ZZ",
+                            "alias": "DL_0001",
+                            "full_name": "Mantu",
+                            "company_name": "Acme Corporation",
+                            "country": "India",
+                            "created_at": "2020-06-15T17:21:04.762+05:30",
+                            "updated_at": "2020-06-15T17:21:04.762+05:30",
+                            "buyer_warehouse_code": "DL-01"
+                          },
+                          "items": [
+                            {
+                              "item_code": "2311LK",
+                              "quantity": 50,
+                              "created_at": "2020-06-15T17:22:11.834+05:30"
+                            }
+                          ]
+                        },
+                        {
+                          "expected_delivery_date": "2020-06-16 00:00:00 +0530",
+                          "order_id": "LK01",
+                          "shipping_address": {
+                            "street_address": "SINDHI CAMP, PATRA CHAWL, RAILWAY COLONY, SABLE NAGAR NR BLDG NO.13, KURLA WEST, Mumbai City",
+                            "city": "Mumbai",
+                            "state": "Maharashtra",
+                            "pincode": 400024,
+                            "mobile_number": "+917900161987",
+                            "gstin": "27AFXPG68785L1ZZ",
+                            "alias": "DL_0001",
+                            "full_name": "Mantu",
+                            "company_name": "Acme Corporation",
+                            "country": "India",
+                            "created_at": "2020-06-15T17:21:04.762+05:30",
+                            "updated_at": "2020-06-15T17:21:04.762+05:30",
+                            "buyer_warehouse_code": "DL-01"
+                          },
+                          "items": [
+                            {
+                              "item_code": "2311LK",
+                              "quantity": 50,
+                              "created_at": "2020-06-15T17:22:11.738+05:30"
+                            },
+                            {
+                              "item_code": "2310LK",
+                              "quantity": 50,
+                              "created_at": "2020-06-15T17:22:11.693+05:30"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "Response for PO only": {
+                    "value": {
+                      "purchase_order": {
+                        "billing_address": {
+                          "street_address": "No. 36/2C, Pattanagere main road,India Location Code: 91727923, RajaRajeshwarinagar, (near Metro Cash and Carry Mysuru road",
+                          "city": "Bangalore",
+                          "state": "Karnataka",
+                          "pincode": 560059,
+                          "mobile_number": "8050021583",
+                          "state_code": "KA",
+                          "gstin": "29AAICA6718J1ZE",
+                          "gstin_state_code": "29",
+                          "alias": "UBL5",
+                          "full_name": "Kuldeep",
+                          "company_name": "Acme Corporation",
+                          "country": "India",
+                          "created_at": "2019-10-17T18:14:06.069+05:30",
+                          "updated_at": "2020-06-08T23:10:31.376+05:30",
+                          "buyer_warehouse_code": "24945_LK"
+                        },
+                        "purchase_order_number": "9009",
+                        "sub_total": 6475,
+                        "total": 7640.5,
+                        "tax": 1165.5,
+                        "created_at": "2020-06-15T17:22:11.397+05:30",
+                        "items": [
+                          {
+                            "item_code": "2310LK",
+                            "quantity": 50,
+                            "created_at": "2020-06-15T17:22:11.439+05:30",
+                            "price_per_unit": 55.5
+                          },
+                          {
+                            "item_code": "2311LK",
+                            "quantity": 100,
+                            "created_at": "2020-06-15T17:22:11.476+05:30",
+                            "price_per_unit": 37
+                          }
+                        ]
                       }
                     }
                   }
@@ -302,7 +469,7 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "Create a single purchase order with one or many delivery requests. A delivery request is a unique grouping of a delivery date & shipping address id. A delivery group is a set of delivery requests placed together.",
+        "description": "Create a single purchase order with one or many deliveries. Purchase orders must contain a valid billing address code, which will be mapped to a smartpaddle company before the engagement begins.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -311,50 +478,36 @@
                 "properties": {
                   "purchase_order": {
                     "type": "object",
-                    "description": "Always use \"erp\"",
+                    "description": "",
                     "required": [
-                      "confirmation_mode",
-                      "number",
+                      "purchase_order_number",
                       "billing_address_id",
-                      "request_type",
                       "items"
                     ],
                     "properties": {
-                      "confirmation_mode": {
-                        "type": "string",
-                        "enum": [
-                          "erp"
-                        ]
-                      },
-                      "number": {
+                      "purchase_order_number": {
                         "type": "string",
                         "example": "ACME-0122811"
                       },
                       "billing_address_id": {
-                        "type": "number",
-                        "example": 762251,
-                        "description": "Billing address ID of the address from Bizongo"
-                      },
-                      "request_type": {
                         "type": "string",
-                        "enum": [
-                          "immediate"
-                        ]
+                        "example": 762251,
+                        "description": "Billing address identifier (buyer_warehouse_code) of the address stored on Bizongo"
                       },
                       "items": {
                         "type": "array",
                         "items": {
                           "type": "object",
                           "properties": {
-                            "child_product_id": {
-                              "type": "integer"
+                            "item_code": {
+                              "type": "string"
                             },
                             "total_quantity": {
                               "type": "number"
                             }
                           },
                           "required": [
-                            "child_product_id",
+                            "item_code",
                             "total_quantity"
                           ]
                         }
@@ -368,26 +521,80 @@
                       "properties": {
                         "delivery_date": {
                           "type": "string",
-                          "example": "YYYY-MM-DD"
+                          "example": "YYYY-MM-DD",
+                          "description": "Must be a string formatted in YYYY-MM-DD"
                         },
-                        "shipping_address_id": {
-                          "type": "string"
+                        "shipping_address": {
+                          "type": "object",
+                          "required": [
+                            "street_address",
+                            "city",
+                            "state",
+                            "mobile_number",
+                            "full_name"
+                          ],
+                          "properties": {
+                            "street_address": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "string"
+                            },
+                            "mobile_number": {
+                              "type": "string",
+                              "maxLength": 13,
+                              "minLength": 13,
+                              "pattern": "/^(\\+\\d{1,3})\\d{10}$/",
+                              "example": "+919820098200",
+                              "description": "Mobile number of the person at the delivery address for the courier to contact"
+                            },
+                            "gstin": {
+                              "type": "string",
+                              "description": "GSTIN is required if this is a billing address"
+                            },
+                            "alias": {
+                              "type": "string",
+                              "description": "Must give a unique identifier of address, if it is to be persisted at Bizongo"
+                            },
+                            "full_name": {
+                              "type": "string",
+                              "description": "Name of the person at the delivery address for courier partner to contact"
+                            },
+                            "buyer_warehouse_code": {
+                              "type": "string",
+                              "description": "Unique code for the delivery location, can be similar to alias"
+                            }
+                          }
                         },
                         "product_distribution": {
                           "type": "array",
                           "items": {
                             "type": "object",
                             "properties": {
-                              "child_product_id": {
-                                "type": "integer"
+                              "item_code": {
+                                "type": "string"
                               },
                               "quantity": {
                                 "type": "number"
                               }
-                            }
+                            },
+                            "required": [
+                              "item_code",
+                              "quantity"
+                            ]
                           }
+                        },
+                        "order_id": {
+                          "type": "string",
+                          "description": "String based order ID for each delivery, if this is blank, Bizongo will generate one"
                         }
-                      }
+                      },
+                      "required": [
+                        "shipping_address"
+                      ]
                     }
                   }
                 },
@@ -396,32 +603,90 @@
                 ]
               },
               "examples": {
-                "Example": {
+                "Example Request with Deliveries": {
                   "value": {
                     "purchase_order": {
-                      "confirmation_mode": "erp",
-                      "number": "ACME_CORP_091211",
-                      "billing_address_id": 25923,
-                      "request_type": "immediate",
+                      "purchase_order_number": "90009",
+                      "billing_address": "24945_LK",
                       "items": [
                         {
-                          "child_product_id": 57062,
-                          "total_quantity": 10
+                          "item_code": "2310LK",
+                          "total_quantity": 50
+                        },
+                        {
+                          "item_code": "2311LK",
+                          "total_quantity": 100
                         }
                       ]
                     },
                     "delivery_requests": [
                       {
-                        "delivery_date": "2020-05-08",
-                        "shipping_address_id": 25923,
+                        "delivery_date": "2020-06-16",
+                        "shipping_address": {
+                          "street_address": "SINDHI CAMP, PATRA CHAWL, RAILWAY COLONY, SABLE NAGAR NR BLDG NO.13, KURLA WEST, Mumbai City",
+                          "city": "Mumbai",
+                          "state": "Maharashtra",
+                          "pincode": "400024",
+                          "mobile_number": "+917900160982",
+                          "gstin": "27AFXPG6105L1Z6",
+                          "alias": "DL_0001",
+                          "full_name": "Mantu",
+                          "company_name": "Argus Flich",
+                          "buyer_warehouse_code": "FL-01"
+                        },
+                        "order_id": "LK01",
                         "product_distribution": [
                           {
-                            "child_product_id": "57062",
-                            "quantity": 10
+                            "item_code": "2310LK",
+                            "quantity": 50
+                          },
+                          {
+                            "item_code": "2311LK",
+                            "quantity": 50
+                          }
+                        ]
+                      },
+                      {
+                        "delivery_date": "2020-06-16",
+                        "order_id": "LK02",
+                        "shipping_address": {
+                          "street_address": "SINDHI CAMP, PATRA CHAWL, RAILWAY COLONY, SABLE NAGAR NR BLDG NO.13, KURLA WEST, Mumbai City",
+                          "city": "Mumbai",
+                          "state": "Maharashtra",
+                          "pincode": "400024",
+                          "mobile_number": "+917900161987",
+                          "gstin": "27AFXPG6105L12Z",
+                          "alias": "D01",
+                          "full_name": "Mrs Norris",
+                          "company_name": "Norris Enterprises",
+                          "buyer_warehouse_code": "N01"
+                        },
+                        "product_distribution": [
+                          {
+                            "item_code": "2311LK",
+                            "quantity": 50
                           }
                         ]
                       }
                     ]
+                  }
+                },
+                "Example without Deliveries": {
+                  "value": {
+                    "purchase_order": {
+                      "purchase_order_number": "90009",
+                      "billing_address": "24945_LK",
+                      "items": [
+                        {
+                          "item_code": "2310LK",
+                          "total_quantity": 50
+                        },
+                        {
+                          "item_code": "2311LK",
+                          "total_quantity": 100
+                        }
+                      ]
+                    }
                   }
                 }
               }
@@ -430,7 +695,7 @@
         }
       }
     },
-    "/delivery_request_items/elastic-index": {
+    "/delivery-requests": {
       "get": {
         "summary": "Get all deliveries",
         "tags": [],
@@ -445,61 +710,43 @@
                     "count": {
                       "type": "number"
                     },
-                    "delivery_items": {
+                    "delivery_requests": {
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "centre_id": {
-                            "type": "number"
-                          },
-                          "delivery_request_id": {
-                            "type": "number"
-                          },
                           "delivery_date": {
                             "type": "string"
                           },
-                          "created_at": {
+                          "order_id": {
                             "type": "string"
                           },
-                          "child_product_id": {
-                            "type": "number"
-                          },
-                          "product_id": {
-                            "type": "number"
-                          },
-                          "base_product_name": {
-                            "type": "string"
-                          },
-                          "quantity": {
-                            "type": "number"
-                          },
-                          "quantity_unit": {
-                            "type": "string"
-                          },
-                          "product_image": {
-                            "type": "string"
-                          },
-                          "purchase_order_id": {
-                            "type": "number"
-                          },
-                          "purchase_order_number": {
-                            "type": "string"
-                          },
-                          "delivery_request_pretty_id": {
-                            "type": "string"
-                          },
-                          "delivery_request_shipping_address": {
-                            "type": "string"
-                          },
-                          "delivery_request_shipping_address_details": {
+                          "shipping_address": {
                             "type": "object",
                             "properties": {
-                              "id": {
-                                "type": "number"
+                              "street_address": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "pincode": {
+                                "type": "string"
+                              },
+                              "mobile_number": {
+                                "type": "string"
+                              },
+                              "state_code": {
+                                "type": "string"
+                              },
+                              "gstin": {
+                                "type": "string"
+                              },
+                              "gstin_state_code": {
+                                "type": "string"
                               },
                               "alias": {
                                 "type": "string"
@@ -507,53 +754,76 @@
                               "full_name": {
                                 "type": "string"
                               },
-                              "city": {
+                              "company_name": {
                                 "type": "string"
                               },
-                              "pincode": {
+                              "country": {
+                                "type": "string"
+                              },
+                              "created_at": {
+                                "type": "string"
+                              },
+                              "updated_at": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "quantity": {
+                                "type": "number"
+                              },
+                              "open_quantity": {
                                 "type": "number"
                               }
                             }
                           },
-                          "dispatch_plans": {
+                          "shipments": {
                             "type": "array",
                             "items": {
                               "type": "object",
                               "properties": {
-                                "dispatch_plan_id": {
-                                  "type": "number"
-                                },
-                                "shipment_id": {
-                                  "type": "number"
-                                },
-                                "actual_quantity": {
+                                "buyer_invoice_url": {
                                   "type": "string"
                                 },
-                                "returned_quantity": {
-                                  "type": "number"
-                                },
                                 "status": {
-                                  "type": "string",
-                                  "enum": [
-                                    "dispatched",
-                                    "delivered",
-                                    "requested"
-                                  ]
+                                  "type": "string"
                                 },
-                                "status_updated_at": {
+                                "courier": {
+                                  "type": "string"
+                                },
+                                "tracking_id": {
                                   "type": "string"
                                 },
                                 "tracking_link": {
                                   "type": "string"
                                 },
-                                "delivery_timeline": {
-                                  "type": "object",
-                                  "properties": {
-                                    "deadline": {
-                                      "type": "string"
-                                    },
-                                    "completion_date": {
-                                      "type": "string"
+                                "tracking_details": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "address": {
+                                        "type": "object",
+                                        "properties": {
+                                          "city": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      },
+                                      "event_type": {
+                                        "type": "string"
+                                      },
+                                      "arrival_time": {
+                                        "type": "string"
+                                      },
+                                      "arrival_location": {
+                                        "type": "string"
+                                      },
+                                      "event_description": {
+                                        "type": "string"
+                                      }
                                     }
                                   }
                                 }
@@ -566,52 +836,81 @@
                   }
                 },
                 "examples": {
-                  "Example": {
+                  "Example Response": {
                     "value": {
-                      "count": 1,
-                      "delivery_items": [
+                      "total_count": 1,
+                      "delivery_requests": [
                         {
-                          "id": "234493",
-                          "centre_id": 19470,
-                          "delivery_request_id": 96289,
-                          "delivery_date": "2020-06-16T00:00:00.000+05:30",
-                          "created_at": "2020-05-29T15:15:25.871+05:30",
-                          "child_product_id": 61018,
-                          "product_id": 73439,
-                          "base_product_name": "Gel Sanitizer | 500 ml",
-                          "quantity": 250,
-                          "quantity_unit": "Pieces",
-                          "product_image": "https://d1wg0fvppk5fit.cloudfront.net/uploads/picture/image/57024/thumb_64_download__8_.jpg",
-                          "purchase_order_id": 34327,
-                          "purchase_order_number": "4510014006",
-                          "delivery_request_pretty_id": "DR-3954-9629",
-                          "delivery_request_shipping_address": "Anna Channai International Airport\nBackup Office No.3, Mezzanine Floor, 600027 , INDIA, Chennai, Tamil Nadu, India, 600027, 9967720019, , ",
-                          "delivery_request_shipping_address_details": {
-                            "id": 39454,
-                            "alias": "Chennai Airport",
-                            "full_name": "Aringar Anna",
-                            "city": "Chennai",
-                            "pincode": 600027
+                          "delivery_date": "2019-10-28 00:00:00 +0530",
+                          "order_id": "EX-63402",
+                          "shipping_address": {
+                            "street_address": "132/ Scorpio House Whelers road Frazer town ",
+                            "city": "Bangalore",
+                            "state": "Karnataka",
+                            "pincode": 560005,
+                            "mobile_number": "9880701807",
+                            "state_code": "KA",
+                            "gstin": "29AAFCA5016B1Z2",
+                            "gstin_state_code": "29",
+                            "alias": "BLRL",
+                            "full_name": "Argus Filch",
+                            "company_name": "Acme Corporation",
+                            "country": "India",
+                            "created_at": "2019-05-24T11:56:13.244+05:30",
+                            "updated_at": "2019-10-07T14:56:29.554+05:30"
                           },
-                          "dispatch_plans": [
+                          "items": [
                             {
-                              "dispatch_plan_id": 163307,
-                              "shipment_id": 156026,
-                              "actual_quantity": "250.0",
-                              "returned_quantity": 0,
-                              "status": "dispatched",
-                              "status_updated_at": "2020-05-29T18:13:44.605+05:30",
-                              "tracking_link": null,
-                              "delivery_timeline": {
-                                "deadline": "2020-06-16T00:00:00.000+05:30",
-                                "completion_date": null
-                              }
+                              "quantity": 1200,
+                              "open_quantity": 0
+                            },
+                            {
+                              "quantity": 1200,
+                              "open_quantity": 0
+                            },
+                            {
+                              "quantity": 1200,
+                              "open_quantity": 0
                             }
                           ],
-                          "_score": null,
-                          "_explanation": null
+                          "shipments": [
+                            {
+                              "id": 104481,
+                              "buyer_invoice_url": "https://some_link.pdf",
+                              "status": "dispatched",
+                              "courier": "Spoton Bangalore",
+                              "tracking_id": "521511947",
+                              "tracking_link": "521511947",
+                              "tracking_details": [
+                                {
+                                  "address": {
+                                    "city": "PaontSahib_Gurudwar_D (Himachal Pradesh)"
+                                  },
+                                  "event_type": "Delivered",
+                                  "arrival_time": "2020-03-14 18:11:03",
+                                  "arrival_location": "PaontSahib_Gurudwar_D (Himachal Pradesh)",
+                                  "event_description": "Shipment Delivered"
+                                },
+                                {
+                                  "address": {
+                                    "city": "PaontSahib_Gurudwar_D (Himachal Pradesh)"
+                                  },
+                                  "event_type": "OutForDelivery",
+                                  "arrival_time": "2020-03-14 10:37:18",
+                                  "arrival_location": "PaontSahib_Gurudwar_D (Himachal Pradesh)",
+                                  "event_description": "Out for delivery"
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
+                    }
+                  },
+                  "Empty Response": {
+                    "value": {
+                      "total_count": 0,
+                      "delivery_requests": []
                     }
                   }
                 }
@@ -652,15 +951,103 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "delivery_group_id": {
-                      "type": "number"
+                    "delivery_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "delivery_date": {
+                            "type": "string",
+                            "description": "Final delivery date confirmed by Bizongo"
+                          },
+                          "buyer_warehouse_code": {
+                            "type": "string"
+                          },
+                          "shipping_address": {
+                            "type": "object",
+                            "properties": {
+                              "street_address": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "pincode": {
+                                "type": "string"
+                              },
+                              "mobile_number": {
+                                "type": "string"
+                              },
+                              "gstin": {
+                                "type": "string"
+                              },
+                              "alias": {
+                                "type": "string"
+                              },
+                              "full_name": {
+                                "type": "string"
+                              },
+                              "company_name": {
+                                "type": "string"
+                              },
+                              "buyer_warehouse_code": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "order_id": {
+                            "type": "string"
+                          },
+                          "delivery_request_items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "item_code": {
+                                  "type": "string"
+                                },
+                                "quantity": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 },
                 "examples": {
                   "Example Response": {
                     "value": {
-                      "delivery_group_id": 38931
+                      "delivery_requests": [
+                        {
+                          "delivery_date": "2020-06-16",
+                          "buyer_warehouse_code": "24943_LK",
+                          "shipping_address": {
+                            "street_address": "SINDHI CAMP, PATRA CHAWL, RAILWAY COLONY, SABLE NAGAR NR BLDG NO.13, KURLA WEST, Mumbai City",
+                            "city": "Mumbai",
+                            "state": "Maharashtra",
+                            "pincode": "400024",
+                            "mobile_number": "+917900161987",
+                            "gstin": "36AAICA3918J1ZJ",
+                            "alias": "DL_01",
+                            "full_name": "Argus Filch",
+                            "company_name": "Acme Corporation",
+                            "buyer_warehouse_code": "DL1091"
+                          },
+                          "order_id": "EX-122911",
+                          "delivery_request_items": [
+                            {
+                              "item_code": "2311LK",
+                              "quantity": 50
+                            }
+                          ]
+                        }
+                      ]
                     }
                   }
                 }
@@ -671,73 +1058,135 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "Delivery requests are created in a purchase order, if a purchase order has any pending items and quantities in it",
+        "description": "Deliveries are created in a purchase order, if for all items of deliveries, the purchase order has any pending items and quantities in it",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "purchase_order_id": {
-                    "type": "number"
-                  },
-                  "request_type": {
+                  "purchase_order_number": {
                     "type": "string"
                   },
                   "delivery_requests": {
                     "type": "object",
                     "required": [
-                      "delivery_date",
-                      "shipping_address_id",
+                      "buyer_warehouse_code",
                       "delivery_request_items"
                     ],
                     "properties": {
-                      "delivery_date": {
-                        "type": "string"
+                      "requested_delivery_date": {
+                        "type": "string",
+                        "description": "Requested delivery date by client"
                       },
-                      "shipping_address_id": {
-                        "type": "number"
+                      "buyer_warehouse_code": {
+                        "type": "string"
                       },
                       "delivery_request_items": {
                         "type": "array",
                         "items": {
                           "type": "object",
                           "properties": {
-                            "purchase_order_item_id": {
+                            "item_code": {
                               "type": "string"
                             },
                             "quantity": {
-                              "type": "string"
+                              "type": "number"
                             }
                           },
                           "required": [
-                            "purchase_order_item_id",
+                            "item_code",
                             "quantity"
                           ]
                         }
+                      },
+                      "order_id": {
+                        "type": "string",
+                        "description": "Optional Order ID to track orders with, if sent, Bizongo will generate one"
+                      },
+                      "shipping_address": {
+                        "type": "object",
+                        "properties": {
+                          "street_address": {
+                            "type": "string"
+                          },
+                          "city": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          },
+                          "pincode": {
+                            "type": "string"
+                          },
+                          "mobile_number": {
+                            "type": "string",
+                            "description": "Mobile number of the person at delivery location for courier to contact",
+                            "minLength": 13,
+                            "maxLength": 13,
+                            "pattern": "/^(\\+\\d{1,3})\\d{10}$/",
+                            "example": "+919820098200"
+                          },
+                          "gstin": {
+                            "type": "string"
+                          },
+                          "alias": {
+                            "type": "string"
+                          },
+                          "full_name": {
+                            "type": "string",
+                            "description": "Name of the person at delivery location for courier to contact"
+                          },
+                          "company_name": {
+                            "type": "string"
+                          },
+                          "buyer_warehouse_code": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "street_address",
+                          "city",
+                          "state",
+                          "pincode",
+                          "mobile_number",
+                          "full_name",
+                          "buyer_warehouse_code"
+                        ]
                       }
                     }
                   }
                 },
                 "required": [
-                  "purchase_order_id",
-                  "request_type",
+                  "purchase_order_number",
                   "delivery_requests"
                 ]
               },
               "examples": {
                 "Example Request": {
                   "value": {
-                    "purchase_order_id": 24483,
-                    "request_type": "immediate",
+                    "po_number": "7Y-9069",
                     "delivery_requests": [
                       {
-                        "delivery_date": "2020-05-08",
-                        "shipping_address_id": 14865,
+                        "requested_delivery_date": "2020-06-16",
+                        "buyer_warehouse_code": "24943_LK",
+                        "shipping_address": {
+                          "street_address": "SINDHI CAMP, PATRA CHAWL, RAILWAY COLONY, SABLE NAGAR NR BLDG NO.13, KURLA WEST, Mumbai City",
+                          "city": "Mumbai",
+                          "state": "Maharashtra",
+                          "pincode": "400024",
+                          "mobile_number": "+917900161987",
+                          "gstin": "36AAICA3918J1ZJ",
+                          "alias": "DL_01",
+                          "full_name": "Argus Filch",
+                          "company_name": "Acme Corporation",
+                          "buyer_warehouse_code": "DL1091"
+                        },
+                        "order_id": "EX-122911",
                         "delivery_request_items": [
                           {
-                            "purchase_order_item_id": "54206",
-                            "quantity": 2
+                            "item_code": "2311LK",
+                            "quantity": 50
                           }
                         ]
                       }
@@ -748,1339 +1197,23 @@
             }
           }
         }
-      }
-    },
-    "/shipments/{shipment_id}": {
-      "get": {
-        "summary": "Get Shipment Data",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "core_details": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "dispatch_plan_id": {
-                          "type": "number"
-                        },
-                        "direct_order_id": {
-                          "type": "number"
-                        },
-                        "company_id": {
-                          "type": "number"
-                        },
-                        "weight": {
-                          "type": "number"
-                        },
-                        "dispatched_at": {
-                          "type": "string"
-                        },
-                        "delivered_at": {
-                          "type": "string"
-                        },
-                        "updated_at": {
-                          "type": "string"
-                        },
-                        "status": {
-                          "type": "string",
-                          "enum": [
-                            "requested",
-                            "processing",
-                            "cancelled",
-                            "delivered",
-                            "returned",
-                            "could_not_deliver",
-                            "shipment_lost",
-                            "ready_to_ship",
-                            "in_transit"
-                          ]
-                        },
-                        "total_amount": {
-                          "type": "number"
-                        },
-                        "total_receivable": {
-                          "type": "number"
-                        },
-                        "invoice_type": {
-                          "type": "string"
-                        },
-                        "transporter": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "number"
-                            },
-                            "name": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "tracking": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            },
-                            "link": {
-                              "type": "string"
-                            },
-                            "active": {
-                              "type": "boolean"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "origin_address": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "street_address": {
-                          "type": "string"
-                        },
-                        "landmark": {
-                          "type": "string"
-                        },
-                        "city": {
-                          "type": "string"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "country_id": {
-                          "type": "number"
-                        },
-                        "pincode": {
-                          "type": "number"
-                        },
-                        "latitude": {
-                          "type": "number"
-                        },
-                        "mobile_number": {
-                          "type": "string"
-                        },
-                        "state_code": {
-                          "type": "string"
-                        },
-                        "is_active": {
-                          "type": "boolean"
-                        },
-                        "gstin": {
-                          "type": "string"
-                        },
-                        "gstin_attachment_id": {
-                          "type": "string"
-                        },
-                        "auto_fetched": {
-                          "type": "boolean"
-                        },
-                        "company_name": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "destination_address": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "street_address": {
-                          "type": "string"
-                        },
-                        "landmark": {
-                          "type": "string"
-                        },
-                        "city": {
-                          "type": "string"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "country_id": {
-                          "type": "number"
-                        },
-                        "pincode": {
-                          "type": "number"
-                        },
-                        "latitude": {
-                          "type": "number"
-                        },
-                        "mobile_number": {
-                          "type": "string"
-                        },
-                        "state_code": {
-                          "type": "string"
-                        },
-                        "is_active": {
-                          "type": "boolean"
-                        },
-                        "gstin": {
-                          "type": "string"
-                        },
-                        "gstin_attachment_id": {
-                          "type": "string"
-                        },
-                        "auto_fetched": {
-                          "type": "boolean"
-                        },
-                        "company_name": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "product_information": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number"
-                          },
-                          "order_item_id": {
-                            "type": "number"
-                          },
-                          "child_product_id": {
-                            "type": "number"
-                          },
-                          "quantity": {
-                            "type": "number"
-                          },
-                          "shipped_quantity": {
-                            "type": "number"
-                          },
-                          "pod_quantity": {
-                            "type": "number"
-                          },
-                          "returned_quantity": {
-                            "type": "number"
-                          },
-                          "quantity_unit": {
-                            "type": "string"
-                          },
-                          "product_name": {
-                            "type": "string"
-                          },
-                          "total_amount": {
-                            "type": "number"
-                          },
-                          "total_receivable": {
-                            "type": "number"
-                          }
-                        }
-                      }
-                    },
-                    "dispatch_plan_details": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "dispatch_mode": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "status": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "pod": {
-                      "type": "object",
-                      "properties": {
-                        "file_url": {
-                          "type": "string"
-                        },
-                        "uploaded_at": {
-                          "type": "string"
-                        },
-                        "updated_at": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "invoice": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "file_url": {
-                          "type": "string"
-                        },
-                        "number": {
-                          "type": "string"
-                        },
-                        "date": {
-                          "type": "string"
-                        },
-                        "buyer_service_bill_number": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "examples": {
-                  "Delivered Shipment": {
-                    "value": {
-                      "core_details": {
-                        "id": 81734,
-                        "dispatch_plan_id": 89347,
-                        "direct_order_id": 55996,
-                        "company_id": 15574,
-                        "weight": 0,
-                        "dispatched_at": "Jul 19, 2019",
-                        "delivered_at": "Jul 21, 2019",
-                        "created_at": "2019-07-19T16:13:40.432+05:30",
-                        "updated_at": "2019-08-12T17:44:55.974+05:30",
-                        "status": "delivered",
-                        "total_amount": 8142,
-                        "total_receivable": 8142,
-                        "invoice_type": "inv",
-                        "transporter": {
-                          "id": 422,
-                          "name": "DTDC"
-                        },
-                        "tracking": {
-                          "id": "100003199727",
-                          "link": null,
-                          "active": false
-                        }
-                      },
-                      "origin_address": {
-                        "id": 15343,
-                        "street_address": "Somewhere in the earth",
-                        "landmark": null,
-                        "city": "Bangalore",
-                        "state": "Karnataka",
-                        "country_id": 105,
-                        "pincode": 562123,
-                        "latitude": null,
-                        "longitude": null,
-                        "mobile_number": "9820098200",
-                        "state_code": "KA",
-                        "is_active": true,
-                        "gstin": "29AAVCG045D2ZV",
-                        "gstin_attachment_id": null,
-                        "auto_fetched": false,
-                        "vat": null,
-                        "cst": null,
-                        "gstin_state_code": "29",
-                        "alias": "",
-                        "centre_id": null,
-                        "full_name": "Bangalore",
-                        "company_name": "SMARTPADDLE TECHNOLOGY PRIVATE LIMITED",
-                        "user_id": null,
-                        "is_billing": true,
-                        "addressable_id": 11,
-                        "addressable_type": "Warehouse",
-                        "country": "India",
-                        "created_at": "2018-11-12T16:30:23.411+05:30",
-                        "updated_at": "2019-11-26T16:21:01.651+05:30",
-                        "buyer_warehouse_code": null,
-                        "mobile_number_country_id": 105,
-                        "landline_number": null,
-                        "alternate_number": null,
-                        "nearest_warehouse_id": null
-                      },
-                      "destination_address": {
-                        "id": 17131,
-                        "cst": "",
-                        "vat": "",
-                        "city": "Bangalore",
-                        "alias": "Shipping Address",
-                        "gstin": "29AAICA3918J1ZE",
-                        "state": "Karnataka",
-                        "country": "India",
-                        "pincode": 560067,
-                        "user_id": 31086,
-                        "landmark": null,
-                        "latitude": null,
-                        "centre_id": 15117,
-                        "full_name": "Roadrunner Ramamurthy",
-                        "is_active": true,
-                        "longitude": null,
-                        "contact_id": null,
-                        "created_at": "2019-03-27T11:09:18.094+05:30",
-                        "state_code": "KA",
-                        "updated_at": "2019-05-29T14:19:49.657+05:30",
-                        "auto_fetched": false,
-                        "company_name": "Acme Corporation",
-                        "mobile_number": "+919822098200",
-                        "addressable_id": null,
-                        "street_address": "ACME - Somewhere on the earth",
-                        "addressable_type": null,
-                        "gstin_state_code": "29",
-                        "gstin_attachment_id": null
-                      },
-                      "product_information": [
-                        {
-                          "id": 157471,
-                          "order_item_id": 121376,
-                          "child_product_id": null,
-                          "quantity": 3000,
-                          "shipped_quantity": 3000,
-                          "pod_quantity": 0,
-                          "returned_quantity": 0,
-                          "quantity_unit": "Pieces",
-                          "product_name": "Gift Card | 9.2 cm X 16.6 cm",
-                          "total_amount": 8142,
-                          "total_receivable": 8142
-                        }
-                      ],
-                      "dispatch_plan_details": {
-                        "id": 897,
-                        "dispatch_mode": "warehouse_to_buyer",
-                        "description": "Create by system",
-                        "status": "done",
-                        "created_at": "2019-07-18T12:09:45.584+05:30"
-                      },
-                      "pod": {
-                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/shipment/buyer_pod_file/814/63817650_buyer_pod_file.jpeg",
-                        "uploaded_at": null,
-                        "updated_at": "2019-07-22T23:17:30.105+05:30"
-                      },
-                      "invoice": {
-                        "id": 709,
-                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/invoice/buyer_invoice_file/29/133024_buyer_tax_invoice_89347.pdf",
-                        "number": "GSPKA/FY25/029",
-                        "date": "2019-07-19T16:13:40.700+05:30",
-                        "buyer_service_bill_number": null
-                      },
-                      "delivery_challan": {
-                        "file_url": null,
-                        "number": null
-                      },
-                      "credit_note": {
-                        "file_url": null,
-                        "number": null,
-                        "date": null,
-                        "amount": null,
-                        "return_shipment_id": null
-                      }
-                    }
-                  },
-                  "Returned Shipment": {
-                    "value": {
-                      "core_details": {
-                        "id": 132412,
-                        "dispatch_plan_id": 142349,
-                        "direct_order_id": 88293,
-                        "company_id": 15574,
-                        "weight": 0,
-                        "dispatched_at": "Mar  2, 2020",
-                        "delivered_at": "Mar  5, 2020",
-                        "created_at": "2020-03-02T14:52:39.905+05:30",
-                        "updated_at": "2020-05-23T20:16:10.246+05:30",
-                        "status": "returned",
-                        "total_amount": 8091.26,
-                        "total_receivable": 0,
-                        "invoice_type": "inv",
-                        "transporter": {
-                          "id": 31,
-                          "name": "Delhivery B2B"
-                        },
-                        "tracking": {
-                          "id": "KA526406",
-                          "link": "KA526406",
-                          "active": false
-                        }
-                      },
-                      "origin_address": {
-                        "id": 15343,
-                        "street_address": "SY No 6 Huskur road Makali Post Dasanapura Hobli",
-                        "landmark": null,
-                        "city": "Bangalore",
-                        "state": "Karnataka",
-                        "country_id": 105,
-                        "pincode": 562123,
-                        "latitude": null,
-                        "longitude": null,
-                        "mobile_number": "9035000604",
-                        "state_code": "KA",
-                        "is_active": false,
-                        "gstin": "29AAVCS6045D2ZV",
-                        "gstin_attachment_id": null,
-                        "auto_fetched": false,
-                        "vat": null,
-                        "cst": null,
-                        "gstin_state_code": "29",
-                        "alias": "",
-                        "centre_id": null,
-                        "full_name": "Bangalore",
-                        "company_name": "SMARTPADDLE TECHNOLOGY PRIVATE LIMITED",
-                        "user_id": null,
-                        "is_billing": true,
-                        "addressable_id": 11,
-                        "addressable_type": "Warehouse",
-                        "country": "India",
-                        "created_at": "2018-11-12T16:30:23.411+05:30",
-                        "updated_at": "2020-06-03T17:18:41.114+05:30",
-                        "buyer_warehouse_code": null,
-                        "mobile_number_country_id": 105,
-                        "landline_number": null,
-                        "alternate_number": null,
-                        "nearest_warehouse_id": null
-                      },
-                      "destination_address": {
-                        "id": 19470,
-                        "cst": null,
-                        "vat": null,
-                        "city": "Chennai",
-                        "alias": "ACME-AL",
-                        "gstin": "33AAKCA5016Z12B",
-                        "state": "Tamil Nadu",
-                        "country": "India",
-                        "pincode": 600032,
-                        "user_id": 31842,
-                        "landmark": null,
-                        "latitude": null,
-                        "centre_id": 17702,
-                        "full_name": "Porky Pig",
-                        "is_active": true,
-                        "longitude": null,
-                        "country_id": 105,
-                        "created_at": "2019-06-13T13:00:56.728+05:30",
-                        "is_billing": false,
-                        "state_code": "TN",
-                        "updated_at": "2019-11-26T16:24:28.101+05:30",
-                        "auto_fetched": false,
-                        "company_name": "Acme Corporation",
-                        "mobile_number": "9894868336",
-                        "addressable_id": null,
-                        "street_address": "1A , Water Works Road, Guindy industrial Estate , Guindy, Chennai – 600032, (Tasmanian Devil 9852014900)",
-                        "landline_number": null,
-                        "addressable_type": null,
-                        "alternate_number": null,
-                        "gstin_state_code": "33",
-                        "gstin_attachment_id": null,
-                        "buyer_warehouse_code": null,
-                        "mobile_number_country_id": 105
-                      },
-                      "product_information": [
-                        {
-                          "id": 255225,
-                          "order_item_id": 19820,
-                          "child_product_id": 5299,
-                          "quantity": 500,
-                          "shipped_quantity": 500,
-                          "pod_quantity": 0,
-                          "returned_quantity": "500.0",
-                          "quantity_unit": "Pieces",
-                          "product_name": "Rocket Propellent - Extreme Edition",
-                          "total_amount": 1947,
-                          "total_receivable": 0
-                        }
-                      ],
-                      "dispatch_plan_details": {
-                        "id": 142349,
-                        "dispatch_mode": "warehouse_to_buyer",
-                        "description": "auto_created",
-                        "status": "done",
-                        "created_at": "2020-03-01T13:21:59.106+05:30"
-                      },
-                      "pod": {
-                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/shipment/buyer_pod_file/132/1107_buyer_pod_file.pdf",
-                        "uploaded_at": "2020-05-19T19:18:36.803+05:30",
-                        "updated_at": "2020-05-19T19:18:26.081+05:30"
-                      },
-                      "invoice": {
-                        "id": 114550,
-                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/invoice/buyer_invoice_file/110/1563_buyer_tax_invoice_142349.pdf",
-                        "number": "GSPKA/FY25/194",
-                        "date": "2020-03-02T14:52:40.096+05:30",
-                        "buyer_service_bill_number": null
-                      },
-                      "delivery_challan": {
-                        "file_url": null,
-                        "number": null
-                      },
-                      "credit_note": {
-                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/bizongo_credit_note/bizongo_credit_note_file/60/412_credit_note_133.pdf",
-                        "number": "CNQKA/FY25/051",
-                        "date": "2020-03-06T16:10:11.316+05:30",
-                        "amount": 6144.26,
-                        "return_shipment_id": 133
-                      }
-                    }
-                  },
-                  "Cancelled Shipment": {
-                    "value": {
-                      "core_details": {
-                        "id": 99303,
-                        "dispatch_plan_id": 107838,
-                        "direct_order_id": 67943,
-                        "company_id": 15574,
-                        "weight": 0,
-                        "dispatched_at": "Oct  1, 2019",
-                        "delivered_at": null,
-                        "created_at": "2019-10-01T15:12:07.009+05:30",
-                        "updated_at": "2019-10-12T15:35:58.450+05:30",
-                        "status": "cancelled",
-                        "total_amount": 14593.06,
-                        "total_receivable": 14593.06,
-                        "invoice_type": "inv",
-                        "transporter": {
-                          "id": 31,
-                          "name": "Delhivery B2B"
-                        },
-                        "tracking": {
-                          "id": "199183022",
-                          "link": null,
-                          "active": false
-                        }
-                      },
-                      "origin_address": {
-                        "id": 15343,
-                        "street_address": "SY No 6 Huskur road Makali Post Dasanapura Hobli",
-                        "landmark": null,
-                        "city": "Bangalore",
-                        "state": "Karnataka",
-                        "country_id": 105,
-                        "pincode": 562123,
-                        "latitude": null,
-                        "longitude": null,
-                        "mobile_number": "9035000604",
-                        "state_code": "KA",
-                        "is_active": false,
-                        "gstin": "29AAVCS6045D2ZV",
-                        "gstin_attachment_id": null,
-                        "auto_fetched": false,
-                        "vat": null,
-                        "cst": null,
-                        "gstin_state_code": "29",
-                        "alias": "",
-                        "centre_id": null,
-                        "full_name": "Bangalore",
-                        "company_name": "SMARTPADDLE TECHNOLOGY PRIVATE LIMITED",
-                        "user_id": null,
-                        "is_billing": true,
-                        "addressable_id": 11,
-                        "addressable_type": "Warehouse",
-                        "country": "India",
-                        "created_at": "2018-11-12T16:30:23.411+05:30",
-                        "updated_at": "2020-06-03T17:18:41.114+05:30",
-                        "buyer_warehouse_code": null,
-                        "mobile_number_country_id": 105,
-                        "landline_number": null,
-                        "alternate_number": null,
-                        "nearest_warehouse_id": null
-                      },
-                      "destination_address": {
-                        "id": 21280,
-                        "cst": null,
-                        "vat": null,
-                        "city": "Trisshur",
-                        "alias": "TCRJ",
-                        "gstin": "32AA0CY5036Z1ZD",
-                        "state": "Kerala",
-                        "country": "India",
-                        "pincode": 680101,
-                        "user_id": 31842,
-                        "landmark": null,
-                        "latitude": null,
-                        "centre_id": 17702,
-                        "full_name": "Porky Pig",
-                        "is_active": true,
-                        "longitude": null,
-                        "contact_id": null,
-                        "created_at": "2019-06-25T15:47:47.596+05:30",
-                        "state_code": "KL",
-                        "updated_at": "2019-06-25T15:47:47.596+05:30",
-                        "auto_fetched": false,
-                        "company_name": "Acme Corporation",
-                        "mobile_number": "8075019747",
-                        "addressable_id": null,
-                        "street_address": "Shutter No 3,4, Choolpuram juma Masjid,Kottappadi,Kunnakkulam-Guravayoor Road",
-                        "addressable_type": null,
-                        "gstin_state_code": "32",
-                        "gstin_attachment_id": null
-                      },
-                      "product_information": [
-                        {
-                          "id": 194965,
-                          "order_item_id": 151430,
-                          "child_product_id": null,
-                          "quantity": 500,
-                          "shipped_quantity": 500,
-                          "pod_quantity": 0,
-                          "returned_quantity": 0,
-                          "quantity_unit": "Pieces",
-                          "product_name": "ATS LDPE C-Return Pouch | 10.5 Inch x 14 Inch_LM",
-                          "total_amount": 1398.3,
-                          "total_receivable": 1398.3
-                        },
-                        {
-                          "id": 194967,
-                          "order_item_id": 151429,
-                          "child_product_id": null,
-                          "quantity": 500,
-                          "shipped_quantity": 500,
-                          "pod_quantity": 0,
-                          "returned_quantity": 0,
-                          "quantity_unit": "Pieces",
-                          "product_name": "ATS LDPE C-Return Pouch | 19 Inch x 24 Inch_LM",
-                          "total_amount": 3599,
-                          "total_receivable": 3599
-                        }
-                      ],
-                      "dispatch_plan_details": {
-                        "id": 1038,
-                        "dispatch_mode": "warehouse_to_buyer",
-                        "description": "Create by system",
-                        "status": "done",
-                        "created_at": "2019-09-30T19:40:03.287+05:30"
-                      },
-                      "pod": {
-                        "file_url": null,
-                        "uploaded_at": null,
-                        "updated_at": null
-                      },
-                      "invoice": {
-                        "id": 85304,
-                        "file_url": "https://supplychain-production.s3.amazonaws.com/uploads/invoice/buyer_invoice_file/04/122930_buyer_tax_invoice_1838.pdf",
-                        "number": "GSPKA/FY25/09",
-                        "date": "2019-10-01T15:12:07.280+05:30",
-                        "buyer_service_bill_number": null
-                      },
-                      "delivery_challan": {
-                        "file_url": null,
-                        "number": null
-                      },
-                      "credit_note": {
-                        "file_url": null,
-                        "number": null,
-                        "date": null,
-                        "amount": null,
-                        "return_shipment_id": null
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "operationId": "get-shipments",
-        "description": "Shipment information is available using the shipment ID, if it is created. Shipment ID can be retrieved in the GET call of delivery request items' dispatch plan object."
       },
-      "parameters": [
-        {
-          "schema": {
-            "type": "number"
-          },
-          "name": "shipment_id",
-          "in": "path",
-          "required": true
-        }
-      ]
-    },
-    "/shipments/{shipment_id}/track": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "number"
-          },
-          "name": "shipment_id",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Tracking Shipment Status",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "tracking_number": {
-                      "type": "string"
-                    },
-                    "status_detail": {
-                      "type": "object",
-                      "properties": {
-                        "code": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "weight": {
-                          "type": "number"
-                        },
-                        "estimated_delivery_date": {
-                          "type": "string"
-                        },
-                        "pickup_date": {
-                          "type": "string"
-                        },
-                        "location": {
-                          "type": "object",
-                          "properties": {
-                            "city": {
-                              "type": "string"
-                            },
-                            "state": {
-                              "type": "string"
-                            },
-                            "country_code": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "events": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "arrival_time": {
-                                "type": "string"
-                              },
-                              "event_type": {
-                                "type": "string"
-                              },
-                              "event_description": {
-                                "type": "string"
-                              },
-                              "arrival_location": {
-                                "type": "string"
-                              },
-                              "address": {
-                                "type": "object",
-                                "properties": {
-                                  "city": {
-                                    "type": "string"
-                                  },
-                                  "state_or_province_code": {
-                                    "type": "string"
-                                  },
-                                  "postal_code": {
-                                    "type": "string"
-                                  },
-                                  "country_code": {
-                                    "type": "string"
-                                  },
-                                  "country_name": {
-                                    "type": "string"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "package_count": {
-                      "type": "string"
-                    },
-                    "package_sequence_number": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "examples": {
-                  "Delivered Shipment": {
-                    "value": {
-                      "tracking_number": "200238663",
-                      "status_detail": {
-                        "code": "Delivered",
-                        "description": "Shipment Delivered",
-                        "weight": null,
-                        "estimated_delivery_date": null,
-                        "pickup_date": null,
-                        "location": {
-                          "city": "Noida_Sector63_L (Uttar Pradesh)",
-                          "state": null,
-                          "country_code": null
-                        },
-                        "events": [
-                          {
-                            "arrival_time": "2020-03-12 11:44:12",
-                            "event_type": "Delivered",
-                            "event_description": "Shipment Delivered",
-                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
-                            "address": {
-                              "city": "Noida_Sector63_L (Uttar Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-09 17:16:34",
-                            "event_type": "Delivered",
-                            "event_description": "Shipment Delivered",
-                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
-                            "address": {
-                              "city": "Noida_Sector63_L (Uttar Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-09 12:16:11",
-                            "event_type": "OutForDelivery",
-                            "event_description": "Out for delivery",
-                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
-                            "address": {
-                              "city": "Noida_Sector63_L (Uttar Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-08 07:28:36",
-                            "event_type": "InTransit",
-                            "event_description": "Received at destination city",
-                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
-                            "address": {
-                              "city": "Noida_Sector63_L (Uttar Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-08 06:34:19",
-                            "event_type": "InTransit",
-                            "event_description": "Trip Arrived",
-                            "arrival_location": "Noida_Sector63_L (Uttar Pradesh)",
-                            "address": {
-                              "city": "Noida_Sector63_L (Uttar Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-07 22:59:27",
-                            "event_type": "InTransit",
-                            "event_description": "Bag Added To Trip",
-                            "arrival_location": "Gurgaon_Tauru_H (Haryana)",
-                            "address": {
-                              "city": "Gurgaon_Tauru_H (Haryana)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-07 16:48:24",
-                            "event_type": "InTransit",
-                            "event_description": "Trip Arrived",
-                            "arrival_location": "Gurgaon_Tauru_H (Haryana)",
-                            "address": {
-                              "city": "Gurgaon_Tauru_H (Haryana)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-07 12:45:07",
-                            "event_type": "InTransit",
-                            "event_description": "Trip Arrived",
-                            "arrival_location": "Gurgaon_Tauru_H (Haryana)",
-                            "address": {
-                              "city": "Gurgaon_Tauru_H (Haryana)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-07 11:21:06",
-                            "event_type": "InTransit",
-                            "event_description": "Transit Delay ",
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-05 15:52:30",
-                            "event_type": "InTransit",
-                            "event_description": "Transit Delay ",
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-05 12:05:00",
-                            "event_type": "InTransit",
-                            "event_description": "Bag Added To Trip",
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          }
-                        ]
-                      },
-                      "package_count": "NA",
-                      "package_sequence_number": "NA"
-                    }
-                  },
-                  "Lost Shipment": {
-                    "value": {
-                      "tracking_number": "198228255",
-                      "status_detail": {
-                        "code": "Delivered",
-                        "description": "Delivered",
-                        "weight": null,
-                        "estimated_delivery_date": null,
-                        "pickup_date": null,
-                        "location": {
-                          "city": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                          "state": null,
-                          "country_code": null
-                        },
-                        "events": [
-                          {
-                            "arrival_time": "2020-05-30 13:32:24",
-                            "event_type": "Delivered",
-                            "event_description": "Delivered",
-                            "clickpost_status_code": 8,
-                            "arrival_location": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                            "address": {
-                              "city": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-27 09:18:09",
-                            "event_type": "Delivered",
-                            "event_description": "Shipment Delivered",
-                            "clickpost_status_code": 8,
-                            "arrival_location": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                            "address": {
-                              "city": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-27 08:14:24",
-                            "event_type": "OutForDelivery",
-                            "event_description": "Out for delivery",
-                            "clickpost_status_code": 6,
-                            "arrival_location": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                            "address": {
-                              "city": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-26 12:34:52",
-                            "event_type": "InTransit",
-                            "event_description": "NTD updated by CS for Customer",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                            "address": {
-                              "city": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-26 09:47:17",
-                            "event_type": "OutForDelivery",
-                            "event_description": "Out for delivery",
-                            "clickpost_status_code": 6,
-                            "arrival_location": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                            "address": {
-                              "city": "Dhone_SSColny_DPP (Andhra Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-26 05:20:31",
-                            "event_type": "InTransit",
-                            "event_description": "Bag Added To Trip",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Kurnool_AbbasNgr_I (Andhra Pradesh)",
-                            "address": {
-                              "city": "Kurnool_AbbasNgr_I (Andhra Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-25 19:15:38",
-                            "event_type": "InTransit",
-                            "event_description": "DC changed from Kurnool_AbbasNgr_I (Andhra Pradesh) to Dhone_SSColny_DPP (Andhra Pradesh)",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Kurnool_AbbasNgr_I (Andhra Pradesh)",
-                            "address": {
-                              "city": "Kurnool_AbbasNgr_I (Andhra Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-25 17:18:04",
-                            "event_type": "InTransit",
-                            "event_description": "Received at destination city",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Kurnool_AbbasNgr_I (Andhra Pradesh)",
-                            "address": {
-                              "city": "Kurnool_AbbasNgr_I (Andhra Pradesh)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-25 06:30:31",
-                            "event_type": "InTransit",
-                            "event_description": "Bag Added To Trip",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Bengaluru_SoukyaRoad_H (Karnataka)",
-                            "address": {
-                              "city": "Bengaluru_SoukyaRoad_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-24 07:39:19",
-                            "event_type": "InTransit",
-                            "event_description": "Trip Arrived",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Bengaluru_SoukyaRoad_H (Karnataka)",
-                            "address": {
-                              "city": "Bengaluru_SoukyaRoad_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-24 05:53:54",
-                            "event_type": "InTransit",
-                            "event_description": "Trip Arrived",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Bengaluru_SoukyaRoad_H (Karnataka)",
-                            "address": {
-                              "city": "Bengaluru_SoukyaRoad_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-24 00:41:20",
-                            "event_type": "InTransit",
-                            "event_description": "Bag Added To Trip",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-23 22:23:08",
-                            "event_type": "PickedUp",
-                            "event_description": "Trip Arrived",
-                            "clickpost_status_code": 4,
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-23 21:06:43",
-                            "event_type": "PickedUp",
-                            "event_description": "Trip Arrived",
-                            "clickpost_status_code": 4,
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-23 12:52:57",
-                            "event_type": "InTransit",
-                            "event_description": "Bag Added To Trip",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Bangalore__Temp_H_1 (Karnataka)",
-                            "address": {
-                              "city": "Bangalore__Temp_H_1 (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-14 12:37:24",
-                            "event_type": "InTransit",
-                            "event_description": "Trip Arrived",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Bangalore__Temp_H_1 (Karnataka)",
-                            "address": {
-                              "city": "Bangalore__Temp_H_1 (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-14 11:59:53",
-                            "event_type": "InTransit",
-                            "event_description": "Trip Arrived",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Bangalore__Temp_H_1 (Karnataka)",
-                            "address": {
-                              "city": "Bangalore__Temp_H_1 (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-05-13 13:24:03",
-                            "event_type": "InTransit",
-                            "event_description": "Bag Added To Trip",
-                            "clickpost_status_code": 5,
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-28 15:10:34",
-                            "event_type": "PickedUp",
-                            "event_description": "Shipment Recieved at Origin Center",
-                            "clickpost_status_code": 4,
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          },
-                          {
-                            "arrival_time": "2020-03-24 00:28:55",
-                            "event_type": "PickedUp",
-                            "event_description": "Consignment Received",
-                            "clickpost_status_code": 4,
-                            "arrival_location": "Bangalore_Nelmngla_H (Karnataka)",
-                            "address": {
-                              "city": "Bangalore_Nelmngla_H (Karnataka)",
-                              "state_or_province_code": null,
-                              "postal_code": null,
-                              "country_code": null,
-                              "country_name": null
-                            }
-                          }
-                        ]
-                      },
-                      "package_count": "NA",
-                      "package_sequence_number": "NA"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "operationId": "get-shipments-shipment_id-track",
-        "description": "Gets the leg by leg tracking information once a shipment is dispatched, from the courier partners' API."
-      }
+      "parameters": []
     }
   },
   "components": {
-    "schemas": {}
+    "schemas": {},
+    "securitySchemes": {
+      "AuthToken": {
+        "name": "AuthToken",
+        "type": "apiKey",
+        "in": "header"
+      },
+      "Email": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Email"
+      }
+    }
   }
 }
