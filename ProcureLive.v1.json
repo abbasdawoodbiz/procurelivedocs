@@ -7,8 +7,12 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/apis/procure-plus",
-      "description": "Base URL"
+      "url": "http://api.bizongo.in/",
+      "description": "Production"
+    },
+    {
+      "description": "Demo Environment",
+      "url": "https://esb.demo.bizongo.in/"
     }
   ],
   "paths": {
@@ -469,7 +473,7 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "Create a single purchase order with one or many deliveries. Purchase orders must contain a valid billing address code, which will be mapped to a smartpaddle company before the engagement begins.",
+        "description": "Create a single purchase order with one or many deliveries. Purchase orders must contain a valid billing address code, which will be mapped to a smartpaddle company before the engagement begins.\n\nBilling addresses must exist on the system with a clear ",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1058,7 +1062,7 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "Deliveries are created in a purchase order, if for all items of deliveries, the purchase order has any pending items and quantities in it",
+        "description": "Deliveries are created in a purchase order, if for all items of deliveries, the purchase order has any pending items and quantities in it.\n\nIf delivery requests contain the same item with requested delivery dates, but same location - and if the Bizongo system calculates that the expected delivery date is same for such requests, then we will auto-merge the deliveries.\n\nShipping address requires GSTIN",
         "requestBody": {
           "content": {
             "application/json": {
