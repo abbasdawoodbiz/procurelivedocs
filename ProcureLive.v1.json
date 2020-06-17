@@ -7,12 +7,12 @@
   },
   "servers": [
     {
-      "url": "http://api.bizongo.in/",
+      "url": "http://api.bizongo.in",
       "description": "Production"
     },
     {
       "description": "Demo Environment",
-      "url": "https://esb.demo.bizongo.in/"
+      "url": "https://esb.demo.bizongo.in"
     }
   ],
   "paths": {
