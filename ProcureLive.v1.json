@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "ProcureLive",
+    "title": "Bizongo Integration Gateway",
     "version": "1.0",
-    "description": "APIs for procure live application"
+    "description": "API contracts to integrate client applications with Bizongo's internal applications for order creation and tracking"
   },
   "servers": [
     {
@@ -473,7 +473,7 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "Create a single purchase order with one or many deliveries. Purchase orders must contain a valid billing address code, which will be mapped to a smartpaddle company before the engagement begins.\n\nBilling addresses must exist on the system with a clear ",
+        "description": "Create a single purchase order with one or many deliveries. Purchase orders must contain a valid billing address code, which will be mapped to a smartpaddle company before the engagement begins.\n\nBilling addresses must exist on the system with a clear identifier that both systems agree and sync on.",
         "requestBody": {
           "content": {
             "application/json": {
