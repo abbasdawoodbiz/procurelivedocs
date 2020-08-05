@@ -12,7 +12,7 @@
     },
     {
       "description": "Staging",
-      "url": "https://esb.demo.bizongo.in"
+      "url": "https://api.demo.bizongo.in"
     }
   ],
   "paths": {
