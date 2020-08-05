@@ -3,7 +3,10 @@
   "info": {
     "title": "Bizongo Integration Gateway",
     "version": "1.0.1",
-    "description": "API contracts to integrate client applications with Bizongo's internal applications for order creation and tracking"
+    "description": "API contracts to integrate client applications with Bizongo's internal applications for order creation and tracking",
+    "contact": {
+      "name": "Integrations @ Bizongo"
+    }
   },
   "servers": [
     {
@@ -1262,5 +1265,13 @@
         "description": "Email ID against which token is generated, this ID must be having procure live access."
       }
     }
-  }
+  },
+  "security": [
+    {
+      "AuthToken": []
+    },
+    {
+      "Email": []
+    }
+  ]
 }
