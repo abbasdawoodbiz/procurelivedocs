@@ -498,7 +498,7 @@
                       },
                       "billing_address_id": {
                         "type": "string",
-                        "example": 762251,
+                        "example": "762251",
                         "description": "Billing address identifier (buyer_warehouse_code) of the address stored on Bizongo"
                       },
                       "items": {
