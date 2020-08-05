@@ -11,7 +11,7 @@
       "description": "Production"
     },
     {
-      "description": "Demo Environment",
+      "description": "Staging",
       "url": "https://esb.demo.bizongo.in"
     }
   ],
@@ -792,7 +792,16 @@
                                   "type": "string"
                                 },
                                 "status": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "enum": [
+                                    "ready_to_ship",
+                                    "dispatched",
+                                    "delivered",
+                                    "cancelled",
+                                    "could_not_deliver",
+                                    "shipment_lost",
+                                    "returned"
+                                  ]
                                 },
                                 "courier": {
                                   "type": "string"
