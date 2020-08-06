@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://api.bizongo.in",
+      "url": "https://api.bizongo.in",
       "description": "Production"
     },
     {
