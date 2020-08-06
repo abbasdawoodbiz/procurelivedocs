@@ -952,14 +952,16 @@
               "type": "number"
             },
             "in": "query",
-            "name": "page"
+            "name": "page",
+            "description": "By default, the page size will be 1"
           },
           {
             "schema": {
               "type": "number"
             },
             "in": "query",
-            "name": "per_page"
+            "name": "per_page",
+            "description": "Page size will be set at a default of 10 records, a max of 50 records can be requested"
           },
           {
             "schema": {
