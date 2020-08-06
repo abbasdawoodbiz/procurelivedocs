@@ -4,9 +4,7 @@
     "title": "Bizongo Integration Gateway",
     "version": "1.0",
     "description": "API contracts to integrate client applications with Bizongo's internal applications for order creation and tracking",
-    "contact": {
-      "name": "Integrations @ Bizongo"
-    }
+    "contact": {}
   },
   "servers": [
     {
