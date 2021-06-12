@@ -552,7 +552,7 @@
                           "type": "string",
                           "description": "String based order ID for each delivery, if this is blank, Bizongo will generate one"
                         },
-                        "delivery_date": {
+                        "requested_delivery_date": {
                           "type": "string",
                           "example": "YYYY-MM-DD",
                           "description": "Must be a string formatted in YYYY-MM-DD"
