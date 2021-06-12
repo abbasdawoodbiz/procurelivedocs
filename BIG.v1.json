@@ -736,7 +736,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "count": {
+                    "total_count": {
                       "type": "number"
                     },
                     "delivery_requests": {
@@ -817,7 +817,8 @@
                               "type": "object",
                               "properties": {
                                 "buyer_invoice_url": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "deprecated": true
                                 },
                                 "status": {
                                   "type": "string",
@@ -838,7 +839,8 @@
                                   "type": "string"
                                 },
                                 "tracking_link": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "deprecated": true
                                 },
                                 "tracking_details": {
                                   "type": "array",
@@ -864,6 +866,55 @@
                                       },
                                       "event_description": {
                                         "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "pod_url": {
+                                  "type": "string"
+                                },
+                                "invoice_details": {
+                                  "type": "object",
+                                  "properties": {
+                                    "amount": {
+                                      "type": "number"
+                                    },
+                                    "number": {
+                                      "type": "string"
+                                    },
+                                    "date": {
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "type": "string"
+                                    },
+                                    "currency": {
+                                      "type": "string"
+                                    },
+                                    "line_item_details": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "hsn": {
+                                            "type": "number"
+                                          },
+                                          "quantity": {
+                                            "type": "number"
+                                          },
+                                          "item_name": {
+                                            "type": "string"
+                                          },
+                                          "price_per_unit": {
+                                            "type": "number"
+                                          },
+                                          "tax_percentage": {
+                                            "type": "number"
+                                          },
+                                          "amount_without_tax": {
+                                            "type": "number"
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -925,11 +976,26 @@
                           "shipments": [
                             {
                               "id": 104481,
-                              "buyer_invoice_url": "https://some_link.pdf",
+                              "invoice_details": {
+                                "amount": 2565.6232,
+                                "number": "GSPHA/012/122",
+                                "date": "2020-10-09",
+                                "url": "https://somelink.com/sample.pdf",
+                                "currency": "INR",
+                                "line_item_details": [
+                                  {
+                                    "hsn": 39269099,
+                                    "quantity": 1,
+                                    "item_name": "Urban company branded face shield",
+                                    "price_per_unit": 50.4,
+                                    "tax_percentage": 18,
+                                    "amount_without_tax": 50.4
+                                  }
+                                ]
+                              },
                               "status": "dispatched",
                               "courier": "Spoton Bangalore",
                               "tracking_id": "521511947",
-                              "tracking_link": "521511947",
                               "tracking_details": [
                                 {
                                   "address": {
