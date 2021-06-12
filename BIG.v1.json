@@ -475,7 +475,68 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "details": {
+                      "type": "array",
+                      "items": {
+                        "required": [],
+                        "properties": {}
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "message",
+                    "details"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "status": 500,
+                      "message": "A PO ACME-0122811 with 1 products is already present in our system and was created on 2021-06-12 10:15:23 +0530 by Ityaadi.",
+                      "details": [
+                        "A PO ACME-0122811 with 1 products is already present in our system and was created on 2021-06-12 10:15:23 +0530 by Ityaadi."
+                      ]
+                    }
+                  }
+                },
+                "examples": {
+                  "Duplicate PO Number": {
+                    "value": {
+                      "status": 500,
+                      "message": "A PO ACME-0122811 with 1 products is already present in our system and was created on 2021-06-12 10:15:23 +0530 by Ityaadi.",
+                      "details": [
+                        "A PO ACME-0122811 with 1 products is already present in our system and was created on 2021-06-12 10:15:23 +0530 by Ityaadi."
+                      ]
+                    }
+                  },
+                  "Unauthorised": {
+                    "value": {
+                      "status": 401,
+                      "message": "Unauthorised"
+                    }
+                  },
+                  "Not found": {
+                    "value": {
+                      "status": 404,
+                      "message": "Not found"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "description": "Create a single purchase order with one or many deliveries. Purchase orders must contain a valid billing address code, which will be mapped to a smartpaddle company before the engagement begins.\n\nPurchase order requests must also contain a valid Bizongo supplier id which is one of Smartpaddle Technology Pvt. Ltd. (SPTPL) entities. Your account manager will share the correct entity code with you.\n\nBilling address codes must exist on the system with a clear identifier that both systems agree and sync on.",
