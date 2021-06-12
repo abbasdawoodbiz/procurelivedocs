@@ -3,7 +3,7 @@
   "info": {
     "title": "Bizongo Integration Gateway",
     "version": "1.0",
-    "description": "API contracts to integrate client applications with Bizongo's internal applications for order creation and tracking",
+    "description": "API contracts to integrate client applications with Bizongo's internal applications for order creation and tracking. To get access to this API, fill this sheet along with your account handler: https://docs.google.com/spreadsheets/d/1D-d82Ep0rzWhKVY4AkId8ANBQqKaJYREZxFMNZeWwfE/edit?usp=sharing",
     "contact": {
       "name": "Product Intelligence",
       "url": "bizongo.com",
