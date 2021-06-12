@@ -4,7 +4,11 @@
     "title": "Bizongo Integration Gateway",
     "version": "1.0",
     "description": "API contracts to integrate client applications with Bizongo's internal applications for order creation and tracking",
-    "contact": {}
+    "contact": {
+      "name": "Product Intelligence",
+      "url": "bizongo.com",
+      "email": "intelligence@bizongo.com"
+    }
   },
   "servers": [
     {
@@ -474,7 +478,7 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "Create a single purchase order with one or many deliveries. Purchase orders must contain a valid billing address code, which will be mapped to a smartpaddle company before the engagement begins.\n\nBilling addresses must exist on the system with a clear identifier that both systems agree and sync on.",
+        "description": "Create a single purchase order with one or many deliveries. Purchase orders must contain a valid billing address code, which will be mapped to a smartpaddle company before the engagement begins.\n\nPurchase order requests must also contain a valid Bizongo supplier id which is one of Smartpaddle Technology Pvt. Ltd. (SPTPL) entities. Your account manager will share the correct entity code with you.\n\nBilling address codes must exist on the system with a clear identifier that both systems agree and sync on.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -486,18 +490,27 @@
                     "description": "",
                     "required": [
                       "purchase_order_number",
-                      "billing_address_id",
-                      "items"
+                      "billing_address",
+                      "po_date",
+                      "items",
+                      "supplier_id"
                     ],
                     "properties": {
                       "purchase_order_number": {
                         "type": "string",
                         "example": "ACME-0122811"
                       },
-                      "billing_address_id": {
+                      "billing_address": {
                         "type": "string",
                         "example": "762251",
                         "description": "Billing address identifier (buyer_warehouse_code) of the address stored on Bizongo"
+                      },
+                      "po_date": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2021-12-31",
+                        "minLength": 10,
+                        "maxLength": 10
                       },
                       "items": {
                         "type": "array",
@@ -516,6 +529,17 @@
                             "total_quantity"
                           ]
                         }
+                      },
+                      "supplier_id": {
+                        "type": "number",
+                        "enum": [
+                          7746,
+                          9508,
+                          9816,
+                          4606
+                        ],
+                        "example": 7746,
+                        "default": 0
                       }
                     }
                   },
@@ -524,6 +548,10 @@
                     "items": {
                       "type": "object",
                       "properties": {
+                        "order_id": {
+                          "type": "string",
+                          "description": "String based order ID for each delivery, if this is blank, Bizongo will generate one"
+                        },
                         "delivery_date": {
                           "type": "string",
                           "example": "YYYY-MM-DD",
@@ -591,10 +619,6 @@
                               "quantity"
                             ]
                           }
-                        },
-                        "order_id": {
-                          "type": "string",
-                          "description": "String based order ID for each delivery, if this is blank, Bizongo will generate one"
                         }
                       },
                       "required": [
