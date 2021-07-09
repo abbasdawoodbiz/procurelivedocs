@@ -707,7 +707,8 @@
                           "item_code": "2311LK",
                           "total_quantity": 100
                         }
-                      ]
+                      ],
+                      "supplier_id": "..."
                     },
                     "delivery_requests": [
                       {
@@ -775,7 +776,8 @@
                           "item_code": "2311LK",
                           "total_quantity": 100
                         }
-                      ]
+                      ],
+                      "supplier_id": "..."
                     }
                   }
                 }
